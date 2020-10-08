@@ -1,0 +1,22 @@
+
+tr.data-row {
+    border-bottom: 10px solid white;
+    background-color: #FFF9F9;
+}
+
+/* tr.complete {
+    background-color: #FFF9F9;
+}
+tr.not-complete {
+    background-color: #FFF9F9;
+} */
+
+
+#don-hang-list tr:hover{
+    /* border-left: red;      */
+    background-color: #ffc7cd
+}
+
+#side_bar div.line{
+    min-height: 600px;
+}

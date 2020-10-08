@@ -1,0 +1,25 @@
+ /* Style the navigation bar */
+ .navbar_header {
+  width: 100%;
+  background-color: #FFECEC;
+  overflow: auto;
+  padding-left: 10px;
+}
+
+/* Navbar links */
+
+
+/* Navbar links on mouse-over */
+.navbar_header a:hover {
+  background-color: #FF93BA;
+  text-decoration: none;
+}
+
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar_header a {
+    float: none;
+    display: block;
+  }
+} 

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Khai báo thư viện bootstrap và jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+<link rel="stylesheet" href="resource/component/button/button.css">
+<link rel="stylesheet" href="resource/component/textbox/textbox-1.css">
+<link rel="stylesheet" href="resource/component/checkbox/checkbox.css">
+<link rel="stylesheet" href="resource/component/dropdown/dropdown.css">
+<!--Khai báo file CSS-->
+
+<link rel="stylesheet" href="resource/SELLER/add_product/add_product.css">
+
+
+</head>
+<body class = "body">
+    <!--Header -->
+
+    <div id = "header"></div>
+    <!--Nav_bar -->
+    <div id = "nav_bar"></div>
+    <br>
+
+    <div style = "width: 100%; min-height: 1000px">
+      <div class="d-flex justify-content-start">
+          <div  style="margin: 60px; width: 100%; min-width: 600px; margin-top:10px" 
+                class="d-flex flex-column justify-content-end">
+            
+            <p style = "margin-bottom: 30px; font-size:large">
+              Vui lòng điền đầy đủ các mục dưới đây để việc kiểm định được thực hiện nhanh và chính xác nhất.
+            </p>
+
+            <!-- Thong tin co ban -->
+            <div class="card add-product-section">
+              <div class="card-header add-product-section">Thông tin cơ bản</div>
+
+              <div class="card-body add-product-section">
+                <div  class = "textbox-with-label d-flex" 
+                      style="width: calc(60% - 10px); margin-left:0px">
+                    <p>Tên sản phẩm</p>
+                    <input type="text" class="textbox-1" placeholder="Tên sản phẩm"></input>
+                </div>
+
+                <!-- Dropdown -->
+                <div  class="d-flex justify-content-start custom-dropdown"
+                      style=" margin-left:0px">
+                  <p>Danh mục</p>
+                  <select type="text" class="col-sm-4 form-control textbox-1" id="inputPassword"
+                          style="margin-left: 58px;">
+                    <option>Điện thoại</option>
+                    <option>Máy tính</option>
+                    <option>Máy ảnh</option>
+                    <option>Sách</option>
+                    <option>Thời trang</option>
+                    <option>Phụ kiện</option>
+                    <option>Thể thao</option>
+                    <option>Sách</option>
+                  </select>
+                </div>
+
+                <div class = "row">
+                  <div class="col-sm-5">
+                    <br>
+                    <label  class="col-form-label" style="padding-left: 5px;"> Mô tả ngắn (dưới 60 từ): </label>
+                    <div class="textbox-with-label form-group  d-flex"
+                          style = "margin-left: 0px">
+                        <textarea type="text" rows=6 class="form-control textbox-1" placeholder="Mô tả" style="  border: 0px solid #e20606;
+                        border-bottom-width: 1px;background-color: #fff7f7;"></textarea>
+                    </div>
+                    
+                    
+                  </div>
+                  
+                  <div class="col-sm-6">
+                      <br><br>
+                    <div class = "textbox-with-label d-flex">
+                        <p>Giá niêm yết</p>
+                        <input type="text" class="textbox-1" placeholder="Giá niêm yết"></input>
+                    </div>
+                    <div class = "textbox-with-label d-flex">
+                        <p>Giá bán </p>
+                        <input type="text" class="textbox-1" placeholder="Giá bán"></input>
+                    </div>
+                    <div class = "textbox-with-label d-flex">
+                        <p>Nơi sản xuất </p>
+                        <input type="text" class="textbox-1" placeholder="Nơi sản xuất "></input>
+                    </div>
+                    
+                  </div>
+
+              </div>
+             </div>
+
+            </div>
+
+            <br> <br>
+
+            <!-- Thuoc tinh san pham -->
+            <div class="card add-product-section">
+              <div class="card-header add-product-section">Thuộc tính</div>
+
+              <div class="card-body add-product-section">
+                <!-- Hàng đầu tiên -->
+                <div class = "row">
+                  <div class = "textbox-with-label d-flex">
+                    <p>Độ dài (cm)</p>
+                    <input type="text" class="textbox-1" placeholder="(cm)"></input>
+                  </div>
+                  <div class = "textbox-with-label d-flex">
+                    <p>Độ rộng (cm)</p>
+                    <input type="text" class="textbox-1" placeholder="(cm)"></input>
+                  </div>
+                  <div class = "textbox-with-label d-flex">
+                    <p>Độ cao (cm)</p>
+                    <input type="text" class="textbox-1" placeholder="(cm)"></input>
+                  </div>
+                  <div class = "textbox-with-label d-flex">
+                    <p>Cân nặng (kg)</p>
+                    <input type="text" style="min-width: 40px;" class="textbox-1" placeholder="(kg)"></input>
+                  </div>
+                </div>
+
+                <div class = "row">
+                
+                  <div class = "textbox-with-label d-flex">
+                    <p style="width: 100px;">Nhiệt độ bảo quản (độ C) từ</p>
+                    <input type="text"  class="textbox-1" placeholder="(độ C)"></input>
+                  </div>
+                  <div class = "textbox-with-label d-flex">
+                    <p>đến</p>
+                    <input type="text"  class="textbox-1" placeholder="(độ C)"></input>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="custom-control custom-checkbox d-flex"
+                    style="margin-right:30px; margin-left: 20px">
+                    <input type="checkbox" class="custom-control-input red" id="hang_de_vo_checkbox" name="HangDeVoCheckbox">
+                    <label class="custom-control-label" for="hang_de_vo_checkbox">Hàng dễ vỡ</label>
+                  </div>
+                  <div class="custom-control custom-checkbox d-flex">
+                    <input type="checkbox" class="custom-control-input red" id="nguy_hiem_checkbox" name="nguyHiemCheckbox">
+                    <label class="custom-control-label" for="nguy_hiem_checkbox">Chứa chất có khả năng gây nguy hiểm đến sức khỏe</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br> <br>
+
+            <!-- Thông tin chi tiết -->
+            <div class="card add-product-section">
+              <div class="card-header add-product-section">Thuộc tính</div>
+
+              <div class="card-body add-product-section">
+                <p>Phần này này mô tả chi tiết các thông số kỹ thuật, những chi tiết khác về sản phẩm. Chúng tôi đề nghị bạn cung cấp thông tin chi tiết để giúp khách hàng có thể đánh giá sản phẩm tốt hơn.</p>
+                <div class = "d-flex justify-content-start">
+                  <p>Thông tin chi tiết: </p>
+                  <div class="button-red" style="padding-top:0; font-size: 18px"
+                        data-toggle="modal" data-target="#modal-addDetail">+</div>
+                </div>
+                <table>
+                  <tbody>
+                    <tr class="detail-row">
+                      <th class = "detail-header">Nơi sản xuất</th>
+                      <td class = "detail-data">Q12, TP.Hồ Chí Minh, Việt Nam</td>
+                    </tr>
+                    <tr>
+                      <th class = "detail-header">"(Tiêu đề)"</ti></th>
+                      <td class = "detail-data">"(Nội dung) âhahhahahahahahahahaaaaaaaaaa"</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <br> <br>
+
+            <!-- Thông tin logistic -->
+            <div class="card add-product-section">
+              <div class="card-header add-product-section">Thông tin logistic</div>
+
+              <div class="card-body add-product-section">
+                <!-- Dropdown kho hàng -->
+                <div  class="d-flex justify-content-start custom-dropdown">
+                  <p>Kho hàng</p>
+                  <select type="text" class="col-sm-4 form-control textbox-1" id="inputPassword"
+                          style="margin-left: 100px;">
+                  <option>TPHCM</option>
+                  <option>Hà Nội</option>
+                  </select>
+                </div>
+
+                <!-- Dropdown hình thức gửi hàng -->
+                <div  class="d-flex justify-content-start custom-dropdown">
+                  <p>Hình thức gửi hàng</p>
+                  <select type="text" class="col-sm-4 form-control textbox-1" id="inputPassword">
+                  <option>Lấy tại kho của đại lý</option>
+                  <option>Đại lý tự đưa về</option>
+                  </select>
+                </div>
+
+                <!-- Chỉ xuất hiện/được điền khi chọn "Lấy tại kho của đại lý" -->
+                <div  class = "textbox-with-label d-flex"
+                      style = "margin-left: 0;">
+                    <p style="width: 165px;">Địa chỉ kho hàng của đại lý</p>
+                    <textarea type="text" class="textbox-1" placeholder="Địa chỉ"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <br><br>
+            <!-- Hình ảnh -->
+            <div class="card add-product-section">
+              <div class="card-header add-product-section">Hình ảnh</div>
+
+              <div class="card-body add-product-section">
+                <p>Vui lòng cung cấp ít nhất 3 bức hình chụp trực tiếp mẫu sản phẩm, mỗi tấm hình là một góc khác nhau. Ví dụ: Bên ngoài, bên trong, trái, phải, ...</p>
+                <div class = "d-flex justify-content-start">
+                  <p>Hình ảnh đính kèm (ít nhất 3 tấm): </p>
+                  <div class="button-red" style="padding-top:0; font-size: 18px"
+                        data-toggle="modal" data-target="#modal-addPicture">+</div>
+                </div>
+
+                <table class="table add-product-images-table">
+                  <thead>
+                    <th style="width: 15%;">Hình ảnh</th>
+                    <th>Chú thích</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>
+                        <img class="add-product-thumbnail"
+                              src = "resource/images/book 2/book2_1.jpg">
+                      </th>
+                      <td>Trang bìa của cuốn sách</td>
+                    </tr>
+                    <tr>
+                      <th>
+                        <img class="add-product-thumbnail"
+                              src = "resource/images/book 2/book2_2.jpg">
+                      </th>
+                      <td>Bên trong cuốn sách</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <br><br>
+            <!-- Tài liệu đính kèm -->
+            <div class="card add-product-section">
+              <div class="card-header add-product-section">Tài liệu đính kèm</div>
+
+              <div class="card-body add-product-section">
+                <p>Vui lòng đính kèm tại đây bản scan PDF của giấy tờ liên quan đến sản phẩm. Bạn có thể xem lại quy định của chúng tôi <a href="google.com">tại đây</a> để biết những tài liệu cần được gửi trong đơn này.</p>
+                <div class = "d-flex justify-content-start">
+                  <p>Tập tin đính kèm (ít nhất 1 tập tin): </p>
+                  <div class="button-red" style="padding-top:0; font-size: 18px"
+                        data-toggle="modal" data-target="#modal-addDocs">+</div>
+                </div>
+
+                <table class="table add-product-docs-table">
+                  <thead>
+                    <th style="width: 15%;">Hình ảnh</th>
+                    <th>Chú thích</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th> <a href="google.com">mo_ta.pdf</a></th>
+                      <td>Bản mô tả sản phẩm</td>
+                    </tr>
+                    <tr>
+                      <th> <a href="google.com">luu_hanh_sp.pdf</a></th>
+                      <td>Giấy phép lưu hành sản phẩm của (cơ quan...)</td>
+                    </tr>
+                    <tr>
+                      <th><a href="google.com">kiem_dinh.pdf</a></th>
+                      <td>Giấy chứng nhận chất lượng kiểm định của (cơ quan...)</td>
+                    </tr>
+                    <tr>
+                      <th><a href="google.com">xet_nghiem.pdf</a></th>
+                      <td>Kết quả xét nghiệm từ viện (???)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <br><br>
+            <!-- Xác nhận -->
+            <div class="card add-product-section">
+              <div class="card-header add-product-section">Xác nhận</div>
+
+              <div class="card-body add-product-section">
+                <p>Khi bạn gửi đơn này, bạn xác nhận rằng mọi thông tin bạn đã điền trên đơn này là chính xác và trung thực. Bạn sẽ phải chịu trách nhiệm cho các sự cố xảy ra do thông tin của bạn không chính xác hoặc giả mạo.</p>
+                <p>Chúng tôi có thể yêu cầu bạn cung cấp các thông tin, tài liệu khác để đảm bảo tính hợp pháp và chất lượng của sản phẩm. Chỉ khi chúng tôi nhận thấy sản phẩm của bạn đáp ứng yêu cầu của chúng tôi, và không vi phạm quy định và pháp luật, chúng tôi mới đăng tải sản phẩm của bạn lên trang web. Chúng tôi có quyền quyết định cuối cùng trong việc lưu hành sản phẩm của bạn.</p>
+                <p>Chúng tôi có quyền chấm dứt lưu hành sản phẩm của bạn tại bất kì thời điểm nào mà không cần báo trước, nếu sản phẩm của bạn bị phát hiện vi phạm quy định của chúng tôi. Với những trường hợp nghiêm trọng, chúng tôi sẽ thông báo vụ việc với cơ quan chức năng.</p>
+                <p style="font-style: italic;">Nếu cần trợ giúp, vui lòng đọc lại điều (???) của quy định tại đây, hoặc liên hệ qua đường dây nóng của chúng tôi.</p>
+
+                <div class = "d-flex justify-content-center">
+                  <div  onclick="window.location='/view/sellers/quanlysanpham'" class="button-red d-flex justify-content-center" id="final-accept-button">Gửi đơn</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+      </div>
+      <div class="d-flex justify-content-start"></div>
+  </div>
+
+
+    <!-- footer  -->
+    <div id = "footer"></div>
+
+    <!-- ================================ -->
+    <!-- MODALS -->
+
+    <!-- Modal cho việc thêm thông tin chi tiết  -->
+    <div    class="modal  fade" id="modal-addDetail" tabindex="-1" 
+    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document"
+    style="width: 1000px;">
+    <!-- Note: Phải để style ngay trong div.modal-content thì nó mới áp dụng -->
+    <div class="modal-content">
+        <div class="modal-header justify-content-center"
+                style="background-color:#FFECEC; color:black;">
+            <h5 class="modal-title" id="exampleModalLabel" 
+                >Thêm thông tin chi tiết<nav></nav></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+          <div class = "textbox-with-label d-flex">
+            <p style="width:20%">Tiêu đề</p>
+            <input id="detail-header" type="text" class="textbox-1" placeholder="(tiêu đề)"></input>
+          </div>
+          <div class = "textbox-with-label d-flex">
+            <p style="width:20%">Nội dung</p>
+            <textarea rows=10 id="detail-content" type="text" class="textbox-1" placeholder="(nội dung)"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+            <button type="button" class="button-red"
+            style="padding:10px; width:150px; font-size: 18px;">Thêm vào</button>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    
+    <!-- Modal cho việc thêm hình ảnh  -->
+    <div    class="modal  fade" id="modal-addPicture" tabindex="-1" 
+    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document"
+    style="width: 1000px;">
+    <!-- Note: Phải để style ngay trong div.modal-content thì nó mới áp dụng -->
+    <div class="modal-content">
+        <div class="modal-header justify-content-center"
+                style="background-color:#FFECEC; color:black;">
+            <h5 class="modal-title" id="exampleModalLabel" 
+                >Thêm hình ảnh<nav></nav></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body d-flex justify-content-start">
+          <div class = "d-flex flex-column" style="width: 40%">
+            <p style="width:100%">Hình ảnh</p>
+            <button type="file" class="button-ok">Tải lên</button>
+            <img src="resource/images/book 2/book2_3.jpg">
+          </div>
+          <div class="d-flex flex-column" style="width: 60%">
+            <div class = "textbox-with-label d-flex flex-column">
+              <p style="width:20%">Chú thích</p>
+              <textarea rows="8" id="detail-content" type="text" class="textbox-1" placeholder="(chú thích)"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+            <button type="button" class="button-red"
+            style="padding:10px; width:150px; font-size: 18px;">Thêm vào</button>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    
+    <!-- Modal cho việc thêm file PDF  -->
+    <div    class="modal  fade" id="modal-addDocs" tabindex="-1" 
+    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document"
+    style="width: 1000px;">
+    <!-- Note: Phải để style ngay trong div.modal-content thì nó mới áp dụng -->
+    <div class="modal-content">
+        <div class="modal-header justify-content-center"
+                style="background-color:#FFECEC; color:black;">
+            <h5 class="modal-title" id="exampleModalLabel" 
+                >Thêm tài liệu<nav></nav></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body d-flex flex-column justify-content-start">
+          <div class = "d-flex justify-content-start" style="margin-left: 20px">
+            <p style="width:20%">Tập tin</p>
+            <button type="file" class="button-ok" style="margin-left: 25px; margin-right: 25px;">Tải lên</button>
+            <a id="doc-filename" href="">(chưa có tập tin)</a>
+          </div>
+          <div class="d-flex justify-content-start">
+            <div class = "textbox-with-label d-flex justify-content-start" style="width: 100%;">
+              <p style="width:20%; margin-right: 0">Chú thích</p>
+              <textarea rows="8" id="docs-content" type="text" class="textbox-1" placeholder="(chú thích)"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+            <button type="button" class="button-red"
+            style="padding:10px; width:150px; font-size: 18px;">Thêm vào</button>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+      function loadComponent(id, url){
+          $("#" + id).load(url);
+      }
+      
+      $(document).ready(function() {
+          
+          loadComponent("header", "resource/SELLER/component/header/header.html");
+          loadComponent("nav_bar", "resource/SELLER/component/nav_bar/nav_bar.html");
+          loadComponent("product_side_menu", "resource/SELLER/component/product_side_menu/product_side_menu.html")
+          loadComponent("footer", "resource/SELLER/component/footer/footer.html")
+          
+      } );
+  </script>
+
+
+  </body>
+</html>
+
+

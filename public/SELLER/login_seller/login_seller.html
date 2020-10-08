@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JustClick | Đăng nhập</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- orther  -->
+    <link rel="stylesheet" href="resource/component/textbox/textbox-1.css">
+    <link rel="stylesheet" href="resource/component/button/button.css">
+    <link rel="stylesheet" href="resource/SELLER/login_seller/login_seller.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- header_bar  -->
+    <div id="header"></div>
+    <script>
+        $("#header").load("resource/SELLER/component/header/header_guest.html");
+    </script>
+
+    <div class="body-login d-flex justify-content-start align-items-stretch" >
+        <div class="body-right">
+            <div class="body-right-top" ></div>
+            <form action="/view/sellers/quanlysanpham">
+                <input type="textbox" class="textbox-1" placeholder="Tài khoản"></input>
+                <input type="password" class="textbox-1" placeholder="Mật khẩu "></input>
+                <img src="resource/SELLER/images/capcha.svg" alt="..." > 
+                <input type="textbox" class="textbox-1" placeholder="Captcha"></input>
+                <button type="submit" class="button-ok button" style="text-align: left;"> Đăng nhập </button>
+                
+            </form>
+            <div class="body-right-bottom">
+                <p>Bạn đến nhầm chỗ rồi ư? <a href="/view/homepage" class="text-decoration-none">Nhấn vào đây để quay lại trang chủ </a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+    <!-- footer  -->
+    <script>
+        $("#footer").load("resource/SELLER/component/footer/footer.html");
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

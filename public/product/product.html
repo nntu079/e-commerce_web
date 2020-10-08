@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JustClick | Thông tin sản phẩm</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- orther  -->
+    <link rel="stylesheet" href="resource/component/textbox/textbox-1.css">
+    <link rel="stylesheet" href="resource/component/button/button.css">
+    <link rel="stylesheet" href="resource/product/product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="resource/product/product.js"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="body">
+    <div id = "header_bar"></div>   
+    <br>
+    <div class="father-of-all">
+        <div id="nav_bar" style="width: auto;"></div>
+        <div class="d-flex align-content-start flex-wrap product-top">
+            <!-- Slideshow container -->
+            <div class="d-flex flex-column">
+                <div class="slideshow-container">
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 3</div>
+                        <img src="resource/product/images/product1.jpeg" style="width:100%">
+                        <!-- <div class="text">Caption Text</div> -->
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 3</div>
+                        <img src="resource/product/images/product2.jpeg" style="width:100%">
+                        <!-- <div class="text">Caption Two</div> -->
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 3</div>
+                        <img src="resource/product/images/product3.jpeg" style="width:100%">
+                        <!-- <div class="text">Caption Three</div> -->
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                </div>
+
+                <div class="dot-slides">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column product-top-right">
+                <p id="product-name"></p>
+
+                <div class="d-flex flex-row">
+
+                    <div class="top-infor">
+                        <p id="product-id" class="product-element"></p>
+                        <p id="product-author" class="product-element"></p>
+                        <div class="d-flex">
+                            <p id="product-seller" class="product-element"></p>
+                            <button class="button-2-seller">Liên hệ</button>
+                        </div>
+                    </div>
+
+                    <button onclick="changeFavoriteStatus(false)" id="favorite-button">
+                        <img src="" class="favorite" id="favorite-image"></img>
+                    </button>
+
+                </div>
+
+                <div class="d-flex flex-row">
+                    <p class="rating">Rating: 4.0</p>
+                    <div id="rating-star"></div>
+                </div>
+
+                <div class="d-flex price-buying">
+                    <div class="price-only">
+                        <h4 id="price">46.000 VND</h4>
+                        <p id="save-money">Tiết kiệm: 35% (25.000 VND)</p>
+                        <p id="true-cost">Giá thị trường: 71.000 VND</p>
+                    </div>
+
+                    <div class="buying-only d-flex flex-column">
+                        <div class="d-flex flex-row justify-content-end pt-2">
+                            <p class="soluong-label">Số lượng: </p>
+                            <div class="def-number-input number-input safari_only">
+                                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                    class="minus"></button>
+                                <input class="quantity" min="0" name="quantity" value="1" type="number" id="soluong">
+                                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                    class="plus"></button>
+                            </div>
+                        </div>
+                        
+                        <button  onclick="window.location.href='/view/giohang'" class="mt-sm-2"><img src="resource/images/cart.png" class="cart"></img>Chọn mua</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="information">
+            <div class="label">THÔNG TIN CHI TIẾT</div>
+            <table class="table-info" id="product-info">
+                <!-- <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                </tr>
+            </thead> -->
+                <tbody id="product-info-body">
+                    <!-- <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                </tr> -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="preview-product">
+            <div class="label">MÔ TẢ SẢN PHẨM</div>
+            <div class="description">
+                <div id="description-label"></div>
+                <div id="description-content"></div>
+            </div>
+        </div>
+
+        <div class="comments">
+            <div class="label">NHẬN XÉT KHÁCH HÀNG</div>
+            <div class="view-ranking d-flex flex-row">
+                <div class="left d-flex flex-column">
+                    <p style="margin: 0 0 5px 0; font-weight: bold; font-size: 18px;">Đánh giá trung bình</p>
+                    <div class="view-ranking-rate-star d-flex flex-row">
+                        <p id="view-ranking-rate"></p>
+                        <div class="view-ranking-star d-flex flex-column">
+                            <div id="view-ranking-star-draw"></div>
+                            <p id="view-ranking-num-comment" style="margin-top: 3px;"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right d-flex flex-row">
+                    <div style="width: 20%; line-height: 7px; padding-top: 2px; padding-left: 40px; font-weight: bold;">
+                        <p>5 <span class="fa fa-star checked" style="color: orange; line-height: 0;"></span></p>
+                        <p>4 <span class="fa fa-star checked" style="color: orange; line-height: 0;"></span></p>
+                        <p>3 <span class="fa fa-star checked" style="color: orange; line-height: 0;"></span></p>
+                        <p>2 <span class="fa fa-star checked" style="color: orange; line-height: 0;"></span></p>
+                        <p>1 <span class="fa fa-star checked" style="color: orange; line-height: 0;"></span></p>
+                    </div>
+                    <div style="width: 80%;">
+                        <div class="progress" style="margin-bottom: 9px;">
+                            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="progress" style="margin-bottom: 9px;">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 1%" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="progress" style="margin-bottom: 9px;">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="progress" style="margin-bottom: 9px;">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 1%" aria-valuenow="75"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="progress" style="margin-bottom: 9px;">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 1%" aria-valuenow="100"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Phai viet them JS de xu ly dynamic phia duoi thay vi const -->
+            <!-- TODO. -->
+            <div class="view-comment d-flex flex-column">
+                <div class="comment-item d-flex flex-row">
+                    <div class="d-flex flex-column fixed-size">
+                        <div class="comment-item-header">
+                            <span class="fa fa-star checked"
+                                style="color: red; line-height: 0; font-size: 20px;"></span>
+                            <span class="fa fa-star checked"
+                                style="color: red; line-height: 0; font-size: 20px;"></span>
+                            <span class="fa fa-star checked"
+                                style="color: red; line-height: 0; font-size: 20px;"></span>
+                            <span class="fa fa-star checked"
+                                style="color: red; line-height: 0; font-size: 20px;"></span>
+                            <span class="fa fa-star checked"
+                                style="color: red; line-height: 0; font-size: 20px;"></span>
+                            <p class="text222">XuanVyNguyen</p>
+                            <p class="text333">15:17, 02-06-2020</p>
+                        </div>
+                        <div class="comment-item-body">Code cái này khổ thật. Tiếp theo là test với các comment dài:
+                        </div>
+                    </div>
+                    <img class="comment-img ml-auto" onclick="showBigImage('resource/product/images/comment1.jpg');"
+                        src="resource/product/images/comment1.jpg" />
+                </div>
+                <div class="comment-item d-flex flex-row">
+                    <div class="d-flex flex-column fixed-size">
+                        <div class="comment-item-header">
+                            <span class="fa fa-star checked"
+                                style="color: red; line-height: 0; font-size: 20px;"></span>
+                            <span class="fa fa-star checked"
+                                style="color: red; line-height: 0; font-size: 20px;"></span>
+                            <span class="fa fa-star checked"
+                                style="color: red; line-height: 0; font-size: 20px;"></span>
+                            <span class="fa fa-star checked"
+                                style="color: black; line-height: 0; font-size: 20px;"></span>
+                            <span class="fa fa-star checked"
+                                style="color: black; line-height: 0; font-size: 20px;"></span>
+                            <p class="text222">XuanVyNguyen</p>
+                            <p class="text333">15:18, 02-06-2020</p>
+                        </div>
+                        <div class="comment-item-body">Code cái này khổ thật. Tiếp theo là test với các comment dài:
+                            "Code
+                            cái này khổ thật. Tiếp theo là test với các comment dài Code cái này khổ thật. Tiếp theo là
+                            test
+                            với các comment dài Code cái này khổ thật. Tiếp theo là test với các comment dài Code cái
+                            này
+                            khổ thật. Tiếp theo là test với các comment dài Code cái này khổ thật. Tiếp theo là test với
+                            các
+                            comment dài"
+                        </div>
+                    </div>
+                    <img class="comment-img ml-auto" onclick="showBigImage('resource/product/images/product1.jpeg');"
+                        src="resource/product/images/product1.jpeg" />
+                </div>
+            </div>
+
+            <div class="modal fade bd-example-modal-lg" id="modal" tabindex="-1" role="dialog"
+                aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content" style="width: fit-content; margin: auto;">
+                        <img src="" id="img-modal" />
+                    </div>
+                </div>
+            </div>
+
+            <button class="button-ok button-more" onclick="$(this).hide();">Xem thêm</button>
+        </div>
+
+        <div class="WriteComment" >
+            <div class="label"
+                style="margin-top: 10px; background-color: white; color: black; border-top: black 1px solid; padding-top: 10px; font-weight: bold; ">
+                VIẾT NHẬN XÉT
+            </div><br>
+            <div class="row">
+                <div class="col-sm-9" style="padding-left: 80px;">
+
+                    <div class="form-group row">
+
+                        <label class="col-sm-2 col-form-label ">Đánh giá:</label>
+                        <div class="col-sm-10">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input " type="radio" name="inlineRadioOptions"
+                                    id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Tuyệt vời!</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                    value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Tốt</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                    value="option1">
+                                <label class="form-check-label" for="inlineRadio3">Được</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4"
+                                    value="option2">
+                                <label class="form-check-label" for="inlineRadio4">Chưa tốt</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5"
+                                    value="option1">
+                                <label class="form-check-label" for="inlineRadio5">Tệ!</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row" style="justify-content: left;">
+                        <label class="col-sm-2 col-form-label">Tiêu đề: </label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control textbox-1" placeholder="Điền vào đây" style="  border: 0px solid #e20606;
+                border-bottom-width: 1px;background-color: #fff7f7;">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Tiêu đề: </label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control textbox-1" placeholder="Điền vào đây" style="  border: 0px solid #e20606;
+                border-bottom-width: 1px;background-color: #fff7f7;">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Nội dung: </label>
+                        <div class="col-sm-9">
+                            <textarea type="password" rows=4 class="form-control textbox-1" placeholder="Điền vào đây"
+                                style="  border: 0px solid #e20606;
+                border-bottom-width: 1px;background-color: #fff7f7;"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div>Hình ảnh đính kèm:</div>
+                    <img class="comment-img ml-auto" onclick="showBigImage('resource/product/images/product1.jpeg');"
+                        src="resource/product/images/product1.jpeg" />
+                </div>
+                <div class="image_comment">
+
+                </div>
+            </div>
+            <button type="submit" style="width: 200px; margin: 20px 0 20px 420px; " class="button-red button">Đăng nhận
+                xét</button>
+        </div>
+    </div>
+
+    <br><br>
+    <div id="footer"></div>
+
+    <!-- footer  -->
+    <script> $("#header_bar").load("resource/component/header_bar/header_bar_product.html"); </script>
+    <script> $("#nav_bar").load("resource/component/nav_bar/nav_bar_id.html"); </script>
+    <script> $("#footer").load("resource/component/footer/footer.html"); </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+<!-- let name = "<%= spID %>"; -->

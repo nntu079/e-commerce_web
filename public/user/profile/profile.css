@@ -1,0 +1,24 @@
+div.textbox-with-label p{
+    margin-right: 40px;
+    min-width: 100px;
+    overflow: auto;
+}
+
+div.textbox-with-label .username{
+    color:#DA282D;
+    font-weight: bold;
+}
+
+div.line-1{
+    text-align: center;
+    width: 100%;
+    border: 2px;
+    border-color: #FFECEC;
+    border-style: solid;
+    margin-bottom: 30px;
+    margin-top: 30px;   
+}
+
+#side_bar div.line {
+    height: 700px;
+}

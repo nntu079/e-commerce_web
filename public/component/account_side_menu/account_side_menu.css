@@ -1,0 +1,38 @@
+div.line{
+    position: absolute;
+    width: 0px;
+    height: 350px;
+    top: 0px;
+    right: 20px;
+
+    border: 2px solid #D00000;
+    float:right;
+}
+
+div.menu_container {
+    position: relative;
+    left:5px;
+    text-align: left;
+    margin: 0;
+    width: 15%;
+    min-width: 350px;
+    padding: 20px;
+}
+
+div > div.item_container {
+    float:left;
+}
+
+p.welcome_p{
+    font-size: 25px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+div.item_container > p:hover {
+    font-weight: bold;
+}
+/* 
+#side_bar div.line{
+    height: 650px;
+} */

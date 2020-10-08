@@ -1,0 +1,46 @@
+@media (min-width: 300px) {
+  .body-login {
+    min-width: 500px;
+    width: 100%;
+  }
+
+  .body-login > .body-right {
+    background-color: white;
+    min-width: 300px;
+    width: 100%;
+    padding: 0px 50px 0px 50px;
+  }
+  .body-right > .body-right-top {
+    height: 120px;
+  }
+}
+
+@media (min-width: 880px) {
+  .body-login {
+    width: 100%;
+    height: 700px;
+    background-image: url("images/anh-bia-6.jpg");
+  }
+
+  .body-login > .body-right {
+    background-color: white;
+    min-width: 300px;
+    width: 50%;
+    padding: 0px 50px 0px 50px;
+  }
+
+  .body-right > .body-right-top {
+    height: 35%;
+  }
+}
+
+.button-center {
+  margin-top: 15px;
+}
+
+.center-item {
+  text-align: center;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}

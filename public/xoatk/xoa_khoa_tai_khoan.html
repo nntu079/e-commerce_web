@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head >
+<meta Content-Type="text/html"; charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Khai báo thư viện bootstrap và jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+<!--Khai báo file CSS của các thành phần -->
+<!-- <link rel="stylesheet" type="text/css" href="resources/component/header_bar/css/mystyle.css"> -->
+<link rel="stylesheet" href="resource/component/button/button.css">
+<link rel="stylesheet" href="resource/component/textbox/textbox-1.css">
+<link rel="stylesheet" href="resource/component/checkbox/checkbox.css">
+<link rel="stylesheet" href="resource/component/dropdown/dropdown.css">
+
+<!-- CSS của page -->
+<link rel="stylesheet" href="resource/xoatk/xoa_khoa_tai_khoan.css">
+
+</head>
+
+<body>
+    <div id = "header_bar"></div>
+    <div id = "nav_bar"></div>
+
+    <!-- Content chính -->
+    <div style = "width: 100%; height: 400px">
+        <div class="d-flex justify-content-start align-items-start">
+            <div id = "side_bar"></div>
+            <div style="margin-top: 30px; margin-left: 40px; min-width: 600px;" class="d-flex flex-column justify-content-end">
+                <p>Bạn có thể tạm khóa tài khoản nếu nghi ngờ có người khác truy cập vào tài khoản của bạn.</p>
+                <p>Để mở khóa tài khoản, vui lòng đến trụ sở gần nhất để thực hiện thủ tục mở khóa.</p>
+                <p>Bạn cũng có thể xóa tài khoản của mình nếu không còn nhu cầu sử dụng. </p>
+                <p>LƯU Ý: Mọi thông tin về tài khoản này sẽ bị xóa vĩnh viễn khỏi hệ thống, và chúng tôi không thể lấy lại!</p>
+                <div class="d-flex flex-column" style="margin-top: 10px">
+                    <button type="submit" style="width: 180px; padding: 10px 20px" class="button-ok button" id="lock_button"
+                            data-toggle="modal" data-target="#temp-lock-acc-modal" >
+                            Khóa tài khoản</button>
+                    <button type="submit" style="width: 180px; padding: 10px 20px" class="button-red button" id="delete_button"
+                            data-toggle="modal" data-target="#del-acc-modal">
+                        <img src="resource/xoatk/ico_danger.svg" style="max-height: 25px; max-width: 25px;"/>
+                        Xóa tài khoản
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-start"></div>
+    </div>
+    
+    <div id = "footer"></div>
+    
+    <!-- Modal for temporary lock account -->
+    <div    class="modal  fade" id="temp-lock-acc-modal" tabindex="-1" 
+            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document"
+            style="width: 1000px;">
+            <!-- Note: Phải để style ngay trong div.modal-content thì nó mới áp dụng -->
+            <div class="modal-content">
+                <div class="modal-header justify-content-center"
+                        style="background-color:#FFECEC; color:black;">
+                    <h5 class="modal-title" id="exampleModalLabel" 
+                        >KHÓA TÀI KHOẢN<nav></nav></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Sau khi tài khoản bị khóa, bạn sẽ không thể đăng nhập lại.
+                        Để mở khóa tài khoản, vui lòng đến trụ sở gần nhất để thực hiện thủ tục mở khóa.</p>
+                    <div class = "textbox-with-label d-flex">
+                        <p style="width:20%">Mật khẩu</p>
+                        <input id="password-textbox" type="password" class="textbox-1" placeholder="(mật khẩu)"></input>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input red" id="customCheck" name="example1">
+                        <label class="custom-control-label" for="customCheck">Tôi đã hiểu và đồng ý khóa tài khoản này. </label>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="button-red btn "
+                    style="padding:10px; width:100px; font-size: 18px;">Khóa lại</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for delete account -->
+    <div    class="modal  fade" id="del-acc-modal" tabindex="-1" 
+            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document"
+            style="width: 1000px;">
+            <!-- Note: Phải để style ngay trong div.modal-content thì nó mới áp dụng -->
+            <div    class="modal-content" 
+                    style = "
+                    border-color: #DA282D; border-width: 3px;
+                    width: 600px;">
+                <div    class="modal-header justify-content-center"
+                        style="background-color:#DA282D; color:white;">
+                    <h5 class="modal-title" id="exampleModalLabel" 
+                    >XÓA TÀI KHOẢN<nav></nav></h5>
+                
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p style="margin-left: 10px;">Vì sao bạn lại muốn xóa tài khoản này?</p>
+                    <!-- Radio buttons -->
+                    <form>
+                        <div class="custom-control custom-radio" style="padding: 4px; padding-left: 50px;">
+                          <input type="radio" class="custom-control-input" id="reasonRadio1" name="reasonToDel" value="customEx">
+                          <label class="custom-control-label" for="reasonRadio1">Tôi cảm thấy khó khăn khi xài trang web này</label>
+                        </div>
+                        <div class="custom-control custom-radio" style="padding: 4px; padding-left: 50px;">
+                          <input type="radio" class="custom-control-input" id="reasonRadio2" name="reasonToDel" value="customEx">
+                          <label class="custom-control-label" for="reasonRadio2">Tôi không có nhu cầu mua sắm tại đây nữa</label>
+                        </div>
+                        <div class="custom-control custom-radio" style="padding: 4px; padding-left: 50px;">
+                            <input type="radio" class="custom-control-input" id="reasonRadio3" name="reasonToDel" value="customEx">
+                            <label class="custom-control-label" for="reasonRadio3">Giá cả trên đây không phù hợp đối với tôi </label>
+                          </div>
+                          <div class="custom-control custom-radio" style="padding: 4px; padding-left: 50px; padding-bottom: 5px;">
+                            <input type="radio" class="custom-control-input" id="reasonRadio4" name="reasonToDel" value="customEx">
+                            <label class="custom-control-label" for="reasonRadio4">Tôi nghĩ đã có người ăn cắp thông tin và lợi dụng tài khoản này của tôi</label>
+                          </div>
+                          <div class="custom-control custom-radio" style="padding: 4px; padding-left: 50px; padding-bottom: 20px;">
+                            <input type="radio" class="custom-control-input" id="reasonRadio5" name="reasonToDel" value="customEx">
+                            <label class="custom-control-label" for="reasonRadio5">Lý do khác (vui lòng điền ở ô bên cạnh)</label>
+                            <!-- Không hiểu vì sao khi thêm dòng này thì hàng này lại cách xa cái hàng trên. Tạm sửa bằng cách cho padding-bottom ở hàng trên = 5px -->
+                            <input id="other-reason-textbox" type="text" class="textbox-1" placeholder="(lý do khác)"
+                                    style="width: 100%;  margin-top:5px"></input>
+                          </div>
+                      </form> 
+
+                    <!-- Lời khuyên cho người dùng -->
+                    <div>
+                        <p class="row" style="margin-left: 15px; margin-right: 20px;">(dòng dưới đây là tùy thuộc vào lựa chọn của người dùng)
+                            VD: Nếu bạn cảm thấy khó khăn trong quá trình sử dụng trang web, hãy thử liên hệ với đội ngũ hỗ trợ để được hướng dẫn.</p>
+                        <p class="row" style="margin-left: 15px; margin-right: 20px;">Nếu bạn đã chắc chắn, bạn có thể tiếp tục:</p>
+                    </div>
+
+                    <!-- Điền mật khẩu & mã xác nhận -->
+                    <div class="row justify-content-start" style="width: 100%;">
+                        <div class = "textbox-with-label d-flex"  style="width: 100%;">
+                            <p style="width:20%; margin-left: 20px;">Mật khẩu</p>
+                            <input id="password-textbox" type="password" class="textbox-1" placeholder="(mật khẩu)"
+                                    style="width: 80%;"></input>
+                        </div>
+                    </div>
+                    <div class = "row justify-content-start">
+                        <div class = "textbox-with-label d-flex">
+                            <p style="width:50%; margin-left: 20px; margin-right: 15px">Mã xác nhận</p>
+                            <input id="password-textbox" type="text" class="textbox-1" placeholder="(6 ký tự)"></input>
+                        </div>
+                        <button type="button" class="button-ok btn " id="get-code-button">Lấy mã</button>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input red" id="del-acc-checkbox" name="delAccCheckbox">
+                        <label class="custom-control-label" for="del-acc-checkbox">Tôi hiểu rằng mình không thể hoàn tác hành động này, và đồng ý xóa vĩnh viễn tài khoản này cùng mọi thông tin của tôi. </label>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="button-red btn"
+                            style="padding:10px; width:160px; font-size: 18px;">XÓA!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Script -->
+    <script>
+        function loadComponent(id, url){
+            $("#" + id).load(url);
+        }
+        $(document).ready(function() {
+            loadComponent("header_bar", "resource/component/header_bar/header_bar.html");
+            loadComponent("nav_bar", "resource/component/nav_bar/nav_bar.html")
+            loadComponent("side_bar", "resource/component/account_side_menu/account_side_menu.html")
+            loadComponent("footer", "resource/component/footer/footer.html")
+            //load buttons
+            
+        } );
+    </script>
+
+</body>
+
+</html>

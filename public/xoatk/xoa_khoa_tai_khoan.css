@@ -1,0 +1,19 @@
+div.temp-lock-acc-modal div.modal-dialog {
+    width: 1500px;
+    
+}
+
+div.temp-lock-acc-modal div.modal-content {
+    border-color: black;
+    border-width: 5px;
+    border-radius: 0;
+}
+
+/* Style for radio buttons */
+.custom-radio .custom-control-input:checked~ .custom-control-label::before{
+    background-color: #DA282D;
+}
+
+.custom-control-label:before{
+    background-color: #FFECEC;
+}

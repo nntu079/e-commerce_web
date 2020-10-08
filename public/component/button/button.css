@@ -1,0 +1,83 @@
+/* Có 2 loại button là 'button-ok' và 'button-warning'
+cứ gọi class = 'button-ok' hay ... để thêm vào */
+
+/* normal button */
+.button-ok {
+  margin: 0px 5px 10px 5px;
+  padding: 5px 15px;
+  font-size: 16px;
+  font-style: normal;
+
+  background: #fff7f7;
+  border: 1px solid #c8c5c5;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px rgba(149, 0, 0, 0.3);
+
+  transition-duration: 0.4s;
+}
+
+.button-ok:hover {
+  background-color: rgb(163, 7, 7); /* Green */
+  color: white;
+}
+
+.button-warning {
+  margin: 0px 5px 10px 5px;
+  padding: 5px 15px;
+  font-size: 14px;
+  font-style: normal;
+
+  background: white;
+  border: 0px solid #c8c5c5;
+  border-radius: 4px;
+
+  transition-duration: 0.4s;
+}
+
+.button-warning:hover {
+  background-color: goldenrod; /* Green */
+  color: white;
+}
+
+/* full red button */
+
+.button-red {
+  margin: 0px 5px 10px 5px;
+  padding: 5px 15px;
+  font-size: 16px;
+  font-style: normal;
+
+  background: #DA282D;
+  color: white;
+  border: 1px solid #c8c5c5;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px rgba(149, 0, 0, 0.3);
+
+  transition-duration: 0.4s;
+}
+
+.button-red:hover{
+  background-color: black;
+  color: white;
+}
+
+/* full dark red button  */
+.button-darkred {
+  margin: 10px auto 15px 58px;
+  width: 110px;
+  padding: 5px 15px;
+  font-size: 16px;
+  font-style: normal;
+  color: white;
+  font-weight: 400;
+  background: rgb(204, 16, 16);
+  border: 1px solid #c8c5c5;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px rgba(149, 0, 0, 0.3);
+
+  transition-duration: 0.4s;
+}
+
+.button-darkred:hover {
+  background-color: rgb(117, 0, 0);
+}

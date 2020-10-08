@@ -1,0 +1,38 @@
+
+h1 {
+  background-color: #DA282D; 
+  color:aliceblue; 
+  width: 400px; 
+  padding-left: 2%; 
+
+}
+
+.row{
+  justify-content: center;
+}
+
+.column{
+  padding: 15px;
+}
+
+
+
+.textbox-1 {
+  /* box */
+  background-color: #fff7f7;
+  border: 0px solid #e20606;
+  border-bottom-width: 1px;
+  margin: 0px 5px 10px 5px;
+  width: calc(100% - 10px);
+  padding-left: 5px;
+
+  /* text  */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  display: flex;
+  align-items: flex-end;
+  letter-spacing: -0.015em;
+  color: #000000;
+}

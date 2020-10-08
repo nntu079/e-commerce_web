@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta Content-Type="text/html" ; charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Khai báo thư viện bootstrap và jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    <link rel="stylesheet" href="/component/button/button.css">
+    <!--CSS Navigation bar-->
+    <link rel="stylesheet" href="/component/nav_bar/nav_bar.css">
+    <!--CSS account side menu-->
+    <link rel="stylesheet" href="/SELLER/component/product_side_menu/product_side_menu.css">
+    <!--CSS textbox-->
+    <link rel="stylesheet" href="/component/textbox/textbox-1.css">
+    {{!-- Main CSS for this page --}}
+    <link rel="stylesheet" href="/order_detail/order_detail.css">
+</head>
+
+<body>
+    <div id="header_bar"></div>
+    <!--Navigation bar-->
+    <div class="nav">
+        <div class="item">
+            <p> <a href="/user/orders" style="color:black">Tài khoản</a></p>
+        </div>
+        <!-- From 2nd item and above, add an arrow on the left -->
+        <div class="item">
+            <img class="nav_arrow" src="/component/nav_bar/arrow.svg">
+            <p>Chi tiết đơn hàng</p>
+        </div>
+
+    </div>
+    <!--End Navigation bar-->
+
+    <div style="width: 100%;">
+        <div class="d-flex justify-content-start align-items-start">
+
+            <!--account side menu-->
+            <link rel="stylesheet" href="/component/account_side_menu/account_side_menu.css">
+            <div class="menu_container ">
+                <!-- Xin chao, <name> -->
+                <p class="welcome_p">
+                    Xin chào, {{firstname}}
+                </p>
+                <!-- Contain items -->
+                <div class="item_container">
+                    <p><a href="/user/profile" style="color:black">Thông tin tài khoản</a></p>
+                    <p><a href="/user/orders" style="color:black">Đơn hàng của bạn</a></p>
+                    <p><a href="/user/favorite_product" style="color:black">Sản phẩm yêu thích</a></p>
+                    <p><a href="/user/delete_account" style="color:black">Xóa hoặc tạm khóa tài khoản</a></p>
+                </div>
+                <!-- A red line on the right side -->
+                <div class="line"> </div>
+            </div>
+            <!--END account side menu-->
+
+
+            <div class="container-fluid ">
+                <div class="row">
+
+                    <div class="col-md-3" style="margin-top: 1%;">
+                        <button onclick="window.location.href='/user/orders'"
+                            style="width: 180px; padding: 10px 20px" class="button-red button"> Quay lại </button>
+                    </div>
+
+                    <div class="col-md-6" style="margin-top: 1%;">
+                        <div
+                            style="align-content: center; border-style: solid; border-color: #DA282D; border-width: 1px; max-width: 60%; padding-left: 10%; font-size:20pt; margin-left:9%">
+                            Đơn hàng số {{id_payment}}
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="margin-top: 1%;">
+                        <button style="width: 180px; padding: 10px 20px" class="button-red button" data-toggle="modal"
+                            data-target="#huy_don_hang_858">Hủy đơn</button>
+
+                    </div>
+                </div>
+                <div class="row" style=" font-size:20pt;">
+                    <div class="col-md-3" style="margin-top: 1%; ">
+                        Địa chỉ người nhận
+                    </div>
+                    <div class="col-md-3" style="margin-top: 1%; margin-left: 10%;">
+                        Thông tin giao hàng
+                    </div>
+                    <div class="col-md-3" style="margin-top: 1%; margin-left: 10%;">
+                        Hình thức thanh toán
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 textbox-1" style="margin-top: 1%;">
+                        {{detail.address}}
+                    </div>
+                    <div class="col-md-3 textbox-1" style="margin-top: 1%; margin-left: 10%;">
+                        Giao hàng vào {{detail.delivery_date}} <br>
+                        Phí vận chuyển: {{detail.delivery_price}}
+                    </div>
+                    <div class="col-md-3 textbox-1" style="margin-top: 1%; margin-left: 10%;">
+                        <br>
+                        {{detail.payment_type2}}
+                    </div>
+                </div>
+                {{!-- <div class="row" style=" font-size:20pt;">
+                    <div class="col-md">
+                        Thông báo
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 textbox-1" style="margin-top: 1%;">
+                        12/12/2015 <br>
+                        7:30:23 AM
+                    </div>
+
+                    <div class="col-md-9 textbox-1" style="margin-top: 1%;">
+                        (THÔNG BÁO): Chúng tôi đã tiếp nhận đơn hàng.
+                    </div>
+                </div> --}}
+                <br>
+                <div class="row" style=" font-size:20pt;">
+                    <div class="col-md-3" style="margin-top: 1%;">
+                        Tổng giá trị đơn hàng
+                    </div>
+                    <div class="col-md-9 item-price" style="margin-top: 1%;">
+                        {{detail.total_price}} VND
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row header-row" >
+                    <div class="col-md-6">
+                        Sản phẩm
+                    </div>
+                    <div class="col-md">
+                        Giá
+                    </div>
+                    <div class="col-md">
+                        Số lượng
+                    </div>
+                    <div class="col-md">
+                        Giảm giá
+                    </div>
+                    <div class="col-md">
+                        Thành tiền
+                    </div>
+                </div>
+                {{#each product}}
+                <div class="row product-row">
+                    <div class="col-md-6">
+                        <a href="/user/product_infor/{{id}}" style="color:black">
+                            <img class="item-image" src="/data/{{url_image_1}}"
+                                style="height: 50px;">
+                            {{name}}
+                        </a>
+                    </div>
+                    <div class="col-md item-price">
+                        {{recent_price}}đ
+                    </div>
+                    <div class="col-md">
+                        {{quantity}}
+                    </div>
+                    <div class="col-md">
+                        {{sale_percent}}%
+                    </div>
+                    <div class="col-md item-price">
+                        {{real_price}}đ
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="d-flex justify-content-start"></div>
+        </div>
+
+    </div>
+
+    <!-- Modal for temporary lock account -->
+    <div class="modal  fade" id="huy_don_hang_858" tabindex="-1"
+     role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width: 1000px;">
+            <!-- Note: Phải để style ngay trong div.modal-content thì nó mới áp dụng -->
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <p>Bạn chắc chứ? Nếu bạn đồng ý, đơn hàng này sẽ bị xóa vĩnh viễn.
+                        Chúng tôi sẽ hoàn trả lại số tiền bạn đã trả trong thời gian 48h kể từ lúc hủy đơn.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="button-red btn" onclick="window.location.href='/view/chitietdonhang'" 
+                    style="width: 180px; padding: 10px 20px">
+                        Tôi đồng ý
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    
+    <div id="footer"></div>
+    <script>
+        function loadComponent(id, url) {
+            $("#" + id).load(url);
+        }
+        $(document).ready(function () {
+            loadComponent("header_bar", "/component/header_bar/header_bar.html");
+            loadComponent("nav_bar", "/component/nav_bar/nav_bar.html")
+            //loadComponent("side_bar", "resource/component/account_side_menu/account_side_menu.html")
+            console.log("testing");
+            loadComponent("footer", "/component/footer/footer.html")
+            //load buttons
+
+        });
+        function addCommas(nStr)
+        {
+            nStr += '';
+            x = nStr.split('.');
+            x1 = x[0];
+            x2 = x.length > 1 ? '.' + x[1] : '';
+            var rgx = /(\d+)(\d{3})/;
+            while (rgx.test(x1)) {
+                x1 = x1.replace(rgx, '$1' + ',' + '$2');
+            }
+            return x1 + x2;
+        }
+
+        
+        function myFunction() {
+        
+            var x = document.getElementsByClassName("item-price");
+            for( var i=0;i<x.length;i++){
+                x[i].innerHTML = addCommas(x[i].innerHTML );
+            }
+            var y = document.getElementsByClassName("item-ori-price");
+            for(var i=0;i<y.length;i++){
+                y[i].innerHTML = addCommas(y[i].innerHTML );
+        }
+
+        }
+        myFunction();
+    </script>
+
+</body>
+
+</html>

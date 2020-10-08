@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Khai báo thư viện bootstrap và jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+<!--Khai báo file CSS-->
+<link rel="stylesheet" href="resource/component/header_bar/css/mystyle.css">
+<link rel="stylesheet" href="resource/homepage/homepage.css">
+<link rel="stylesheet" href="resource/component/button/button.css">
+<link rel="stylesheet" href="resource/component/textbox/textbox-1.css">
+
+
+</head>
+<body>
+
+  <!--Header -->
+  <div id = "header_bar"></div>
+  <div id = "header"></div>
+
+    <br> <br>
+    <h1>Thông tin tìm kiếm</h1> <br>
+    <!--Thông tin tìm kiếm-->
+    <form style="margin-left: 5%;">
+     
+        <div class="form-group row">
+          
+          <label  class="col-sm-1 col-form-label" style="padding-left: 0px">Danh mục</label>
+          <div class="col-sm-11">
+            <select type="password" class="col-sm-4 form-control textbox-1" id="inputPassword" style="  border: 0px solid #e20606;
+            border-bottom-width: 1px;background-color: #fff7f7;">
+              <option>Điện thoại</option>
+              <option>Máy tính</option>
+              <option>Máy ảnh</option>
+              <option>Sách</option>
+              <option>Thời trang</option>
+              <option>Phụ kiện</option>
+              <option>Thể thao</option>
+              <option>Sách</option>
+            </select>
+          </div>
+        
+        </div>
+
+        <div class="form-group row">
+    
+          <label  class="col-sm-1 col-form-label "style="padding-left: 0px">Đánh giá</label>
+          <div class="col-sm-11">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <label class="form-check-label" for="inlineRadio1">Tuyệt vời!</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <label class="form-check-label" for="inlineRadio2">Tốt</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <label class="form-check-label" for="inlineRadio1">Được</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <label class="form-check-label" for="inlineRadio2">Chưa tốt</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <label class="form-check-label" for="inlineRadio1">Tệ!</label>
+            </div>
+          </div>
+        </div>
+      
+        <div class="form-group row" style="justify-content: left;">
+          
+          <label  class="col-sm-1 col-form-label"style="padding-left: 0px">Giá tối đa</label>
+          <div class="col-sm-4">
+              <input type="password" class="form-control textbox-1" placeholder="Điền vào đây" style="  border: 0px solid #e20606;
+              border-bottom-width: 1px;background-color: #fff7f7;">
+          </div>
+
+        </div>
+
+        <div class="form-group row"style="justify-content: left;">
+          
+          <label  class="col-sm-1 col-form-label"style="padding-left: 0px; padding-right: 0px">Nhà bán hàng</label>
+          <div class="col-sm-4">
+              <input type="password" class="form-control textbox-1" placeholder="Điền vào đây" style="  border: 0px solid #e20606;
+              border-bottom-width: 1px;background-color: #fff7f7;">
+          </div>
+
+        </div>
+
+
+    </form>
+  <br><br>
+ <!-- Kết quả tìm kiếm  -->
+ <h1>Kết quả tìm kiếm</h1><br>
+
+
+ <div class = column>
+  <div class = "row">
+    <div class="column" id="item1"></div>
+    <div class="column" id="item2"></div>
+    <div class="column" id="item3"></div>
+    <div class="column" id="item4"></div>
+  </div>
+  <br>
+ <div class = "row">
+   <div class="column" id="item5"></div>
+   <div class="column" id="item6"></div>
+   <div class="column" id="item7"></div>
+   <div class="column" id="item8"></div>
+ </div>
+ <br>
+ <div class = "row">
+   <div class="column" id="item9"></div>
+   <div class="column" id="item10"></div>
+   <div class="column" id="item11"></div>
+   <div class="column" id="item12"></div>
+ </div>
+</div>
+
+
+   <br><br>
+ <!-- Button Xem thêm -->
+   <div class="row">
+     <div class="col-sm">
+
+     </div>
+     <div class="col-sm">
+       <button type="button" class="button-ok" style="min-width: 100%;">Xem thêm</button>
+     </div>
+     <div class="col-sm">
+       
+     </div>
+     
+   </div>
+ </div>
+    <br> <br>
+    <!-- footer  -->
+    <div id = "footer"></div>
+
+    <script>
+      function loadComponent(id, url){
+          $("#" + id).load(url);
+      }
+      
+      $(document).ready(function() {
+          loadComponent("header_bar", "resource/component/header_bar/header_bar.html")
+          loadComponent("header", "resource/component/header/header.html");
+          loadComponent("item1", "resource/component/item/item.html");
+          loadComponent("item2", "resource/component/item/item.html");
+          loadComponent("item3", "resource/component/item/item.html");
+          loadComponent("item4", "resource/component/item/item.html");
+          loadComponent("item5", "resource/component/item/item.html");
+          loadComponent("item6", "resource/component/item/item.html");
+          loadComponent("item7", "resource/component/item/item.html");
+          loadComponent("item8", "resource/component/item/item.html");
+          loadComponent("item9", "resource/component/item/item.html");
+          loadComponent("item10", "resource/component/item/item.html");
+          loadComponent("item11", "resource/component/item/item.html");
+          loadComponent("item12", "resource/component/item/item.html");
+
+          loadComponent("footer", "resource/component/footer/footer.html")
+          
+      } );
+  </script>
+
+  </body>
+</html>
+

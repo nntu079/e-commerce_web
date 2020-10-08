@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--Khai báo thư viện bootstrap và jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+  <!--Khai báo file CSS-->
+  <link rel="stylesheet" href="/component/header_bar/css/mystyle.css">
+  <link rel="stylesheet" href="/homepage/homepage.css">
+  <link rel="stylesheet" href="/component/button/button.css">
+  <link rel="stylesheet" href="/component/textbox/textbox-1.css">
+
+  <link rel="stylesheet" href="/component/item/item.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <div id="header_bar"></div>
+  <div id="header"></div>
+
+
+  <!-- Đại hạ giá thứ 3 -->
+
+  <div class="row">
+    {{#each data}}
+    <div class="column" style="padding: 4em;">
+      <div class="container">
+        <a href="/user/product_infor/{{id}}">
+          <img class="item-image" src="/data/{{url_image_1}}" style="height:14em" alt="Book" id={{id}} >
+          <p class="item-title">{{name}}</p>
+           
+           <div class="item-rating">
+             {{#each rank}}
+            <span class="fa fa-star checked" style="font-size:24px"></span>
+            {{/each}}
+
+            {{#each not_rank}}
+            <span class="fa fa-star" style="font-size:24px"></span>
+            {{/each}}
+          </div>
+
+          <p class="item-price">{{price}} VND</p>
+          <p class="item-ori-price">{{old_price}} VND</p>
+        </a>
+      </div>
+    </div>
+    {{/each}}
+
+  </div>
+  <nav aria-label="Page navigation example" style="margin-left: 40%">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous" id="page0" onclick="pageNext(this)">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#" id="page1" onclick="pageNext(this)">1</a></li>
+      <li class="page-item"><a class="page-link" href="#" id="page2"  onclick="pageNext(this)">2</a></li>
+      <li class="page-item"><a class="page-link" href="#" id="page3" onclick="pageNext(this)">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next" id="page4" onclick="pageNext(this)">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div id="max" style="display: none;">
+    {{max}}
+  </div>
+
+
+
+
+  <!-- footer  -->
+  <div id="footer"></div>
+
+
+  <script>
+    function loadComponent(id, url) {
+      $("#" + id).load(url);
+    }
+
+    $(document).ready(function () {
+      loadComponent("header_bar", "/component/header_bar/header_bar.html");
+      loadComponent("header", "/component/header/header.html");
+
+      loadComponent("item5", "/component/item/item.html");
+
+      loadComponent("footer", "/component/footer/footer.html")
+    });
+  </script>
+
+  <script>
+    /*
+    $(document).ready(function () {
+      var x = document.getElementsByClassName("item-image");
+      var i;
+      for (i = 0; i < x.length; i++) {
+        x[i].src="/data/product/"+x[i].id+".jpg";
+        console.log(x[i].src)
+      } 
+      
+    });
+    */
+  </script>
+
+
+    <script>
+     
+
+         limit=parseInt(parseInt(document.getElementById("max").innerHTML)/9);
+
+        current=parseInt(window.location.pathname.split('/')[3])
+
+         document.getElementById("page1").style.fontWeight = "1000"; 
+
+        if(current==limit){
+          document.getElementById("page4").style.display = "none";
+          document.getElementById("page3").style.display = "none";
+          document.getElementById("page2").style.display = "none";
+          document.getElementById("page1").innerHTML=current;
+        }else if(current==0){
+          document.getElementById("page0").style.display = "none";
+          document.getElementById("page3").innerHTML=current+2;
+          document.getElementById("page2").innerHTML=current+1;
+          document.getElementById("page1").innerHTML=current;
+        }
+        else if(current==limit-1){
+          document.getElementById("page4").style.display = "none";  
+          document.getElementById("page3").style.display = "none";
+          document.getElementById("page2").innerHTML=current+1;
+          document.getElementById("page1").innerHTML=current;
+        }
+        else{
+          document.getElementById("page3").innerHTML=current+2;
+          document.getElementById("page2").innerHTML=current+1;
+          document.getElementById("page1").innerHTML=current;
+        }
+  
+
+  haha();
+
+    function pageNext(obj){
+
+      if(obj.id=="page4"){
+        current=current+1;
+        
+        if(current>limit)
+          current=limit;
+        window.location.replace("http://localhost:3000/user/userHomePageLimit/"+current);
+      }
+      else if(obj.id=="page0"){
+
+        current=current-1;
+        
+        if(current<0)
+          current=0;
+        window.location.replace("http://localhost:3000/user/userHomePageLimit/"+current);
+
+      }
+      else {
+        current=parseInt(obj.innerHTML)
+        window.location.replace("http://localhost:3000/user/userHomePageLimit/"+current);
+
+      }
+    
+
+
+    }
+
+     function addCommas(nStr)
+    {
+      nStr += '';
+      x = nStr.split('.');
+      x1 = x[0];
+      x2 = x.length > 1 ? '.' + x[1] : '';
+      var rgx = /(\d+)(\d{3})/;
+      while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+      }
+      return x1 + x2;
+    }
+
+    
+    function myFunction() {
+      
+      var x = document.getElementsByClassName("item-price");
+      for( var i=0;i<x.length;i++){
+        x[i].innerHTML = addCommas(x[i].innerHTML );
+      }
+      var y = document.getElementsByClassName("item-ori-price");
+      for(var i=0;i<y.length;i++){
+        y[i].innerHTML = addCommas(y[i].innerHTML );
+      }
+
+    }
+    myFunction();
+
+
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+.body {
+    background-color: pink;
+    border: 1px solid black;
+}
+
+.minibox{
+    background-color: white;
+}
+
+.header_of_tt{
+    border-top: 2px solid rgb(216, 209, 209) ;
+}
+
+.line_vertical{
+
+    height: 55px;
+    top: 0px;
+    right: 20px;
+
+    border-left: 2px solid black;
+    margin-left: 200px;
+
+    
+}
+
+
+.thanhtoan{
+    color: red;
+    padding-left: 10px;
+    font-size: 32px;
+    padding-top: 7px;
+}
+
+.line{
+    border: 1px solid black;
+}
+
+
+.custom-control-label:before{
+    background-color: #FFECEC;
+}
+
+.custom-radio .custom-control-input:checked~ .custom-control-label::before{
+    background-color: #DA282D;
+}
+
+.flex-container {
+    display: flex;
+  }

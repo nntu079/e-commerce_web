@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JustClick | Đăng ký</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- orther  -->
+    <link rel="stylesheet" href="/component/textbox/textbox-1.css">
+    <link rel="stylesheet" href="/component/button/button.css">
+    <link rel="stylesheet" href="/register/register.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{!-- Script --}}
+    <script src="/register/register.js"></script>
+</head>
+
+<body>
+    <div id="header_bar"></div>
+    <script>
+        $("#header_bar").load("/component/header_bar/header_bar_guest.html");
+    </script>
+
+    <div class="body-login d-flex justify-content-start align-items-stretch">
+        <div class="body-right">
+            <div class="body-right-top"></div>
+            <div class="center-item">
+                <input id="usernameTxb" type="textbox" class="textbox-1" placeholder="Username" onblur="isExistAccount()"> </input>
+                <input id="passwordTxb" type="password" class="textbox-1" placeholder="Password"></input>
+                <input id="password2Txb" type="password" class="textbox-1" placeholder="Password again"></input>
+                <input id="emailTxb" type="textbox" class="textbox-1" placeholder="Email"></input>
+                <input id="phoneTxb" type="textbox" class="textbox-1" placeholder="Phone Number"></input>
+                <button onclick="OnSubmitButtonClick();" class="button-ok button-center"> Tạo tài khoản </button>
+            </div>
+            <div class="body-right-top"></div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+    <!-- footer  -->
+    <script>
+        $("#footer").load("/component/footer/footer.html");
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+
+<script>
+
+ async function isExistAccount()  {
+ 
+     var x = document.getElementById("usernameTxb");
+    url='http://localhost:3000/user/isExistAccountAPI/'+x.value;
+
+
+    fetch(url)
+      .then(
+        function(response) {
+          if (response.status !== 200) {
+            console.log('Lỗi');
+            return true;
+          }
+          // parse response data
+          response.json().then(data => {
+            if(data=='1'){
+                alert('Tài khoản đã tồn tại');
+                x.value='';
+            }
+
+          })
+        }
+      )
+      .catch(err => {
+        console.log('Error :-S', err)
+      });
+
+
+    
+}
+
+</script>
+</body>
+
+</html>

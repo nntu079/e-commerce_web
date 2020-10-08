@@ -1,0 +1,35 @@
+div.nav {
+    width: 100%;
+    background-color: #FFECEC;
+    font-size: 18px;
+    padding: 10px;
+}
+
+div.item {
+    position: relative;
+    /* top:5px; */
+    /* float:left; */
+    width: auto;
+    margin-right: 30px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.nav_arrow {
+    display: inline;
+    margin-right: 10px;
+    max-width: 18px;
+    max-height: 18px;
+}
+
+div.item > p{
+    display: inline;
+    overflow:hidden;
+    text-align: center;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+div.item > p:hover{
+    color: red;
+}

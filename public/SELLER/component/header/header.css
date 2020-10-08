@@ -1,0 +1,19 @@
+
+.width_400{
+    min-width: 400px !important;
+  }
+  
+  .bgFFECEC{
+    background: linear-gradient(270deg, #FF93BA 10.78%, rgba(255, 255, 255, 0) 77.22%), #FFC0D7;
+  
+  }
+  
+  .online{
+    background-color:#68D235;
+    border-radius: 25px;
+  }
+  .offline{
+    background-color: white;
+  }
+  
+  

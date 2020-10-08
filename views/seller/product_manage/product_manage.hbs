@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Khai báo thư viện bootstrap và jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+<link rel="stylesheet" href="/component/button/button.css">
+<link rel="stylesheet" href="/component/textbox/textbox-1.css">
+<link rel="stylesheet" href="/component/checkbox/checkbox.css">
+<!--Khai báo file CSS-->
+
+<link rel="stylesheet" href="/SELLER/add_product/add_product.css">
+
+<!--CSS Navigation bar-->
+<link rel="stylesheet" href="/component/nav_bar/nav_bar.css">
+
+<!-- Component file - load by jQuery to generate component -->
+<link rel="stylesheet" href="/SELLER/component/product_side_menu/product_side_menu.css">
+
+</head>
+<body class = "body">
+    <!--Header -->
+
+    <div id = "header"></div>
+    <!--Nav_bar -->
+    <!--Navigation bar-->
+    <div class="nav">
+      <div class="item">
+          <p>Quản lý sản phẩm</p>
+      </div>
+     
+    </div>
+  <!--End Navigation bar-->
+    <br>
+
+    <div style = "width: 100%; min-height: 400px">
+      <div class="d-flex justify-content-start align-items-start">
+          <!-- Component file - load by jQuery to generate component -->
+          <div class="container ">
+            <!-- Xin chao, <name> -->
+            <p class="welcome_p">
+                Xin chào, Nguyễn Văn A
+            </p>
+            <!-- Contain items -->
+            <div class="item_container">
+                <a href="/seller/product_manage" style="color:black"><p>Quản lý sản phẩm</p></a>
+                <a href="/seller/add_product" style="color:black"><p>Thêm sản phẩm</p></a>
+                <a href="/seller/feedback" style="color:black"><p>Phản hồi người dùng</p></a>
+                <a href="/seller/statistic" style="color:black"><p>Thống kê</p></a>
+            </div>
+            <!-- A red line on the right side -->
+            <div class="line"> </div>
+          </div>
+
+
+          <div  class="d-flex justify-content-start align-items-start container-fluid" style="margin-right:2%">
+            <table class="table table-bordered">
+              {{!-- <colgroup>
+                <col class="col-md-2">
+                <col class="col-md-2">
+                <col class="col-md-2">
+                <col class="col-md-2">
+                <col class="col-md-2">
+                <col class="col-md-2">
+              </colgroup> --}}
+              <thead>
+                <tr style="text-align: center;">
+                  <th style="width: 16.66%" scope="col">Mã sản phẩm</th>
+                  <th style="width: 16.66%" scope="col">Hình ảnh</th>
+                  <th style="width: 16.66%" scope="col">Tên sản phẩm</th>
+                  <th style="width: 16.66%" scope="col">Số lượng tồn kho</th>
+                  <th style="width: 16.66%" scope="col">Trạng thái</th>
+                  <th style="width: 16.66%" scope="col">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody style="text-align: center; ">
+                {{#each product}}
+                <tr>
+                  <td style="vertical-align: middle;" >{{id}}</td>
+                  <td style="vertical-align: middle;"><img class="item-image" src="/data/{{url_image_1}}" alt="Book" style="height: 70px;"> </td>
+                  <td style="vertical-align: middle;">{{name}}</td>
+                  <td style="vertical-align: middle;">{{state}}</td>
+                  <td style="vertical-align: middle;">{{status}}</td>
+                  <td style="vertical-align: middle;">
+                    <button style="width: 100%;" class="button-red button" > Chỉnh sửa </button> <br>
+                    <button  style="width: 100%;" class="button-red button" > Xóa </button> 
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+
+          </div>
+      </div>
+      <div class="d-flex justify-content-start"></div>
+  </div>
+
+
+    <!-- footer  -->
+    <div id = "footer"></div>
+
+    <script>
+      function loadComponent(id, url){
+          $("#" + id).load(url);
+      }
+      
+      $(document).ready(function() {
+          
+          loadComponent("header", "/SELLER/component/header/header.html");
+          loadComponent("nav_bar", "/SELLER/component/nav_bar/nav_bar.html");
+          loadComponent("footer", "/SELLER/component/footer/footer.html")
+          
+      } );
+  </script>
+
+
+  </body>
+</html>

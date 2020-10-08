@@ -1,0 +1,52 @@
+div a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.container{
+    float: center;
+    width: 250px;
+    height: 400px;
+    background-color: #FFECEC;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.container:hover{
+
+    background-color: #FB9B9B;
+}
+
+.item-image{
+    padding: 15px 15px 0px 15px;
+    align-items: center;
+    width: 220px;
+    height: 200px;
+    left: 127px;
+    top: 1120px;
+}
+
+.item-title{
+    padding-left: 15px;
+}
+
+.item-rating{
+    padding-left: 15px;
+
+}
+
+.item-price{
+    padding-left: 15px;
+    font-size: 24px;
+    color: red;
+}
+
+.item-ori-price{
+    padding-left: 15px;
+    text-decoration: line-through;
+}
+
+.checked {
+    color: orange;
+  }

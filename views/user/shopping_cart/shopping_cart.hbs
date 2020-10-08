@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!--Khai báo thư viện bootstrap và jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+
+    <!--Khai báo file CSS-->
+    <link rel="stylesheet" href="/component/button/button.css">
+    <link rel="stylesheet" href="/component/textbox/textbox-1.css">
+    <link rel="stylesheet" href="/shopping_cart/shopping_cart.css">
+    {{!-- File script xử lí sự kiện --}}
+    <script src="/shopping_cart/shopping_cart.js"></script>
+
+    <title>Giỏ hàng</title>
+</head>
+
+<body class="body">
+    <!--Header -->
+    <div id="header_bar"></div>
+    <div  id="user" style="display: none;">
+        {{user}}
+    </div>
+
+    <div class="d-flex flex-row giohang">
+        <div class="giohang-left d-flex flex-column">
+            
+            {{#each products}}
+            <div class="items d-flex flex-row" id="item{{id}}">
+                <div class="item-left d-flex flex-row">
+                    <img src="/data/{{url_image_1}}" class="item-img" />
+                    <div class="d-flex flex-column">
+                        <p id="item-name">{{name}}</p>
+                        <p id="item-seller">Cung cấp bởi {{supplier}}</p>
+                        <p id="item-id">Mã sản phẩm: {{id}}</p>
+                        <p id="idproduct" style="display: none">{{id}}</p>
+                    </div>
+                </div>
+                <div class="item-right d-flex flex-column">
+                    <div id="item-star">
+                        {{#each rank}}
+                        <span class="fa fa-star checked" style="color: red; line-height: 0; font-size: 20px;"></span>
+                        {{/each}}
+
+                        {{#each not_rank}}
+                        <span class="fa fa-star checked" style="color: black; line-height: 0; font-size: 20px;"></span>
+                        {{/each}}
+                    </div>
+                    <div class="d-flex flex-row item-num-group">
+                        <button id="incbutton" onclick="tang(this)" name="{{id}}" style="margin-left:10%;">+</button>
+                        <input type="text" id="item-number{{id}}" placeholder="{{quantity}}"/ style="width: 50%; ">
+                        <button id="desbutton" onclick="giam(this)" name="{{id}}">-</button>
+                    </div>
+                    <p id="item-price{{id}}" class="item-price f1" name={{total_price}}>{{total_price}} VND</p>
+                </div>
+            </div>
+            {{/each}}
+
+        </div>
+        <script type="text/javascript">
+            async function tang(obj){
+                x=document.getElementById("item-number"+obj.name).placeholder;
+                url="http://localhost:3000/user/increase_quantityAPI/"+obj.name;
+                await fetch(url);
+
+                giadonvi= parseInt( document.getElementById("item-price"+obj.name).getAttribute('name') );
+                
+                y=parseInt(x);
+                giadonvi=giadonvi/y;
+
+
+                document.getElementById("item-price"+obj.name).setAttribute('name',giadonvi*(y+1));
+                
+                document.getElementById("item-number"+obj.name).placeholder=parseInt(x)+1;
+
+                document.getElementById("item-price"+obj.name).innerHTML=parseInt(giadonvi*(parseInt(x)+1)) +'VND';
+
+
+                function loadComponent(id, url) {
+            $("#" + id).load(url);
+        }
+        $(document).ready(function () {
+            loadComponent("header_bar", "/component/header_bar/header_bar.html")
+            loadComponent("footer", "/component/footer/footer.html")
+        });
+
+    f1=document.getElementsByClassName("f1");
+    f2=0;
+    for(var i=0;i<f1.length;i++){
+        f2=f2+parseInt(f1[i].getAttribute('name'));
+    }
+    f3=parseInt(f2*1.1);
+    document.getElementById("tamtinhLabel").innerHTML=f2+" VND";
+    document.getElementById("tongtienLabel").innerHTML=f3+" VND";
+
+        function addCommas(nStr)
+    {
+      nStr += '';
+      x = nStr.split('.');
+      x1 = x[0];
+      x2 = x.length > 1 ? '.' + x[1] : '';
+      var rgx = /(\d+)(\d{3})/;
+      while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+      }
+      return x1 + x2;
+    }
+
+    
+    function myFunction() {
+      
+      var x = document.getElementsByClassName("item-price");
+      for( var i=0;i<x.length;i++){
+        x[i].innerHTML = addCommas(x[i].innerHTML );
+      }
+      var y = document.getElementsByClassName("item-ori-price");
+      for(var i=0;i<y.length;i++){
+        y[i].innerHTML = addCommas(y[i].innerHTML );
+      }
+
+    }
+    myFunction();
+
+
+
+
+            }
+             async function giam(obj){
+                x=document.getElementById("item-number"+obj.name).placeholder;
+
+
+                giadonvi= parseInt( document.getElementById("item-price"+obj.name).getAttribute('name') );
+                
+                y=parseInt(x);
+                giadonvi=giadonvi/y;
+
+
+                
+
+                if(parseInt(x)>=1){
+
+
+                url="http://localhost:3000/user/decrease_quantityAPI/"+obj.name;
+                await fetch(url);  
+               
+
+                    document.getElementById("item-price"+obj.name).setAttribute('name',giadonvi*(y-1));
+                
+                document.getElementById("item-number"+obj.name).placeholder=parseInt(x)-1;
+
+                document.getElementById("item-price"+obj.name).innerHTML=parseInt(giadonvi*(parseInt(x)-1)) +'VND';
+
+                    if(parseInt(x)==1){
+                        document.getElementById("item"+obj.name).innerHTML="";
+                    }
+                }
+                 function loadComponent(id, url) {
+            $("#" + id).load(url);
+        }
+        $(document).ready(function () {
+            loadComponent("header_bar", "/component/header_bar/header_bar.html")
+            loadComponent("footer", "/component/footer/footer.html")
+        });
+    f1=document.getElementsByClassName("f1");
+    f2=0;
+    for(var i=0;i<f1.length;i++){
+        f2=f2+parseInt(f1[i].getAttribute('name'));
+    }
+    f3=parseInt(f2*1.1);
+    document.getElementById("tamtinhLabel").innerHTML=f2+" VND";
+    document.getElementById("tongtienLabel").innerHTML=f3+" VND";
+
+        function addCommas(nStr)
+    {
+      nStr += '';
+      x = nStr.split('.');
+      x1 = x[0];
+      x2 = x.length > 1 ? '.' + x[1] : '';
+      var rgx = /(\d+)(\d{3})/;
+      while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+      }
+      return x1 + x2;
+    }
+
+    
+    function myFunction() {
+      
+      var x = document.getElementsByClassName("item-price");
+      for( var i=0;i<x.length;i++){
+        x[i].innerHTML = addCommas(x[i].innerHTML );
+      }
+      var y = document.getElementsByClassName("item-ori-price");
+      for(var i=0;i<y.length;i++){
+        y[i].innerHTML = addCommas(y[i].innerHTML );
+      }
+
+    }
+    myFunction();
+
+            }
+
+
+        </script>
+        <div class="giohang-right">
+
+            <form class="giohang-righttop" action="/user/payment" method="get">
+                <p>Tạm tính:</p>
+                <p id="tamtinhLabel" class="moneyLabel item-price">{{precalcMoney}} VND </p>
+                <p>Tổng tiền (Đã bao gồm VAT):</p>
+                <p id="tongtienLabel" class="moneyLabel item-price">{{totalMoney}} VND</p>
+                <button type="submit" class="button-darkred" id="datmua-button">Đặt hàng</button>
+            </form>
+
+            <form class="giohang-rightbottom">
+                <p>Mã giảm giá</p>
+                <input class="textbox-1" placeholder="Nhập mã tại đây" id="magiamgia"></input>
+                <button type="submit" class="button-ok" id="khuyenmai-button"
+                        onclick="OnAgreeButtonClick();">Đồng ý</button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- footer  -->
+    <div id="footer"></div>
+
+    <script src="/shopping_cart/shopping_cart.js"></script>
+    <script>
+        function loadComponent(id, url) {
+            $("#" + id).load(url);
+        }
+        $(document).ready(function () {
+            loadComponent("header_bar", "/component/header_bar/header_bar.html")
+            loadComponent("footer", "/component/footer/footer.html")
+        });
+
+
+        function addCommas(nStr)
+    {
+      nStr += '';
+      x = nStr.split('.');
+      x1 = x[0];
+      x2 = x.length > 1 ? '.' + x[1] : '';
+      var rgx = /(\d+)(\d{3})/;
+      while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+      }
+      return x1 + x2;
+    }
+
+    
+    function myFunction() {
+      
+      var x = document.getElementsByClassName("item-price");
+      for( var i=0;i<x.length;i++){
+        x[i].innerHTML = addCommas(x[i].innerHTML );
+      }
+      var y = document.getElementsByClassName("item-ori-price");
+      for(var i=0;i<y.length;i++){
+        y[i].innerHTML = addCommas(y[i].innerHTML );
+      }
+
+    }
+    myFunction();
+
+    </script>
+</body>
+
+</html>

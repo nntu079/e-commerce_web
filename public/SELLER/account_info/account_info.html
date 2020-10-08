@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Khai báo thư viện bootstrap và jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+<!--Khai báo file CSS-->
+
+<link rel="stylesheet" href="resource/SELLER/account_info/account_info.css">
+
+
+</head>
+<body class = "body">
+    <!--Header -->
+
+    <div id = "header"></div>
+    <!--Nav_bar -->
+    <div class="nav">
+      <div class="item">Tài khoản </div>
+  </div><br>
+
+    <div style = "width: 100%; height: 400px">
+      <div class="d-flex justify-content-start align-items-start">
+          <div id = "account_side_menu"></div>
+          <div style="margin-top: 30px; margin-left: 40px; min-width: 900px;" class="d-flex flex-column justify-content-end">
+            <div class = "row">
+              <div class="col-sm-6">
+                <div class="row">
+                  <img src="resource/SELLER/images/avatar.jpeg" alt="Avatar" class="avatar col-sm-4"> 
+                  <div class = "col-sm-8">
+                    <p style="padding-top: 10px; margin-bottom: 0px;"> Đại lý </p>
+                    <p style="font-size: 30px; font-weight: bold;"> Nguyễn Văn A</p>
+                    <br>
+                    <div class ="row">
+                    <span class="checkmark col-sm-1">
+                      <div class="checkmark_circle"></div>
+                      <div class="checkmark_stem"></div>
+                      <div class="checkmark_kick"></div>
+                  </span>
+                  <div class="col-sm-10" style="padding-left: 0px;">Đã xác nhận bởi JustClick </div>
+                </div>
+                  </div>
+                </div>
+                <br>
+                <div style="padding: 5px" > Số CMND: 123456789</div>
+                <div style="padding: 5px"> Mã số thuế: 654378682</div>
+                <br>
+                <div style="padding: 5px">Địa chỉ kho hàng của đại lý: TPHCM</div>
+                
+                <form aria-disabled="true">
+                  <div style="display: inline; padding: 5px">Mô hình lưu kho: </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" disabled class="custom-control-input" id="customRadio" name="example" value="customEx">
+                    <label class="custom-control-label" for="customRadio">Tự động</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" disabled class="custom-control-input" id="customRadio2" name="example" value="customEx">
+                    <label class="custom-control-label" for="customRadio2">Chủ động</label>
+                  </div>
+                </form> 
+                <div style="padding: 5px">Số sản phẩm đang có mặt trên sàn giao dịch: 10</div>
+
+              </div>
+              <div class="col-sm-6">
+                <br>
+                  <div style="padding: 5px">Số điện thoại: 012345676</div>
+                  <div style="padding: 5px">Email        : abc@xyzz.com</div>
+                  <div style="padding: 5px">Địa chỉ      : TPHCM</div>
+                <br><br>
+
+                <div  style="padding: 5px">Các giải thưởng: </div>
+                <div  style="padding: 5px">
+                <img class ="cup" src="resource/SELLER/images/cup.svg" alt="Avatar" >
+                <div style="display: inline; padding: 5px; font-weight: bold;">Đại lý thân thiết </div>
+              </div>
+              <div  style="padding: 5px">
+                <img class ="cup" src="resource/SELLER/images/cup.svg" alt="Avatar" >
+                <div style="display: inline; padding: 5px; font-weight: bold;">Nhà bán lẻ uy tín năm 2018 </div>
+              </div>
+              </div>
+              
+            </div>
+          </div>
+      </div>
+      <div class="d-flex justify-content-start"></div>
+  </div>
+
+
+
+
+
+
+    <!-- footer  -->
+    <div id = "footer"></div>
+
+    <script>
+      function loadComponent(id, url){
+          $("#" + id).load(url);
+      }
+      
+      $(document).ready(function() {
+          
+          loadComponent("header", "resource/SELLER/component/header/header.html");
+          loadComponent("account_side_menu", "resource/SELLER/component/account_side_menu/account_side_menu.html")
+          loadComponent("footer", "resource/SELLER/component/footer/footer.html")
+          
+      } );
+  </script>
+
+
+  </body>
+</html>
+
+

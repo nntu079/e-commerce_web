@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--Khai báo thư viện bootstrap và jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+  <link rel="stylesheet" href="/component/button/button.css">
+  <link rel="stylesheet" href="/component/textbox/textbox-1.css">
+  <link rel="stylesheet" href="/component/checkbox/checkbox.css">
+  <!--Khai báo file CSS-->
+  
+  <!--CSS Navigation bar-->
+  <link rel="stylesheet" href="/component/nav_bar/nav_bar.css">
+
+  <!--CSS selection-->
+  <link rel="stylesheet" href="/component/selection/selection.css">
+  <!-- Component file - load by jQuery to generate component -->
+  <link rel="stylesheet" href="/SELLER/component/product_side_menu/product_side_menu.css">
+  <style>
+    div.line{
+    height: 200%;
+  }
+</style>
+</head>
+
+<body class="body">
+  <!--Header -->
+
+  <div id="header"></div>
+  <!--Nav_bar -->
+
+  <!--Navigation bar-->
+  <div class="nav">
+    <div class="item">
+      <p>Thống kê</p>
+    </div>
+
+  </div>
+  <!--End Navigation bar-->
+  <br>
+
+  <div style="width: 100%;" >
+    <div class="d-flex justify-content-start align-items-start" >
+      <!-- Product menu site -->
+      <div>
+        <div class="container ">
+          <!-- Xin chao, <name> -->
+          <p class="welcome_p">
+            Xin chào, Nguyễn Văn A
+          </p>
+          <!-- Contain items -->
+          <div class="item_container">
+            <p>Quản lý sản phẩm</p>
+            <p>Thêm sản phẩm</p>
+            <p>Phản hồi người dùng</p>
+            <p style="font-weight: bold">Thống kê</p>
+          </div>
+          <!-- A red line on the right side -->
+          <div class="line" > </div>
+        </div>
+      </div>
+
+
+      <div class="justify-content-start align-items-start container-fluid" style="margin-right:2%;">
+
+        <form style="padding-left:3%; padding-top:3%;padding-bottom: 1%; background-color: #FFECEC;">
+
+          <div class="form-group row">
+            <div class="row col-sm-6">
+              <div class="col-sm-3 col-form-label" style="padding-left: 0px;">Ngày bắt đầu</div>
+              <div class="col-sm-9">
+                <select class=" textbox-1 select1" id="sanpham858_sanpham" style="  border: 0px solid #e20606;
+                      border-bottom-width: 1px;background-color: #fff7f7; width: 70%; ">
+                  <option>1/1/2020</option>
+                  <option>1/1/2020</option>
+                </select>
+              </div>
+            </div>
+            <div class="row col-sm-6">
+              <label class="col-sm-3 col-form-label" style="padding-left: 0px">Ngày kết thúc</label>
+
+              <div class="col-sm-9">
+                <select class=" textbox-1 select1" id="sanpham858_tieuchi" style="  border: 0px solid #e20606;
+                      border-bottom-width: 1px;background-color: #fff7f7; width: 70%;">
+                  <option>1/1/2020</option>
+                  <option>1/1/2020</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+        </form>
+        <br>
+        <div>
+          Lưu ý: Bộ lọc trên không áp dụng cho cột “đánh giá trung bình”.
+        </div>
+        <br><br>
+
+
+        <table class="table table-bordered">
+          <!--
+          <colgroup>
+            <col class="col-2">
+            <col class="col-3">
+            <col class="col-2">
+            <col class="col-2">
+            <col class="col-3">
+          </colgroup>
+          -->
+          <thead>
+            <tr style="text-align: center;">
+              <th scope="col"  style="width: 16.66%">Mã sản phẩm</th>
+              <th scope="col" style="width: 25%">Tên sản phẩm</th>
+              <th scope="col" style="width: 16.66%">Đánh giá TB</th>
+              <th scope="col" style="width: 16.66%">Số lượng bán ra</th>
+              <th scope="col" style="width: 25%">Doanh thu</th>
+            </tr>
+          </thead>
+
+          <tbody style="text-align: center; ">
+            <tr>
+              <td style="vertical-align: middle;">???</td>
+              <td style="vertical-align: middle;">xx </td>
+              <td style="vertical-align: middle;">
+                <span class="fa fa-star checked" style="color: red; line-height: 0; font-size: 20px;"></span>
+                <span class="fa fa-star checked" style="color: red; line-height: 0; font-size: 20px;"></span>
+                <span class="fa fa-star checked" style="color: red; line-height: 0; font-size: 20px;"></span>
+                <span class="fa fa-star checked" style="color: red; line-height: 0; font-size: 20px;"></span>
+                <span class="fa fa-star checked" style="color: red; line-height: 0; font-size: 20px;"></span>
+              </td>
+              <td style="vertical-align: middle;">
+                Chưa phản hồi
+              </td>
+              <td style="vertical-align: middle;">
+                Chưa phản hồi
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <br><br>
+
+  <!-- footer  -->
+  <div id="footer"></div>
+
+  <script>
+    function loadComponent(id, url) {
+      $("#" + id).load(url);
+    }
+
+    $(document).ready(function () {
+
+      loadComponent("header", "/SELLER/component/header/header.html");
+      loadComponent("nav_bar", "/SELLER/component/nav_bar/nav_bar.html");
+      loadComponent("footer", "/SELLER/component/footer/footer.html")
+
+    });
+  </script>
+
+
+</body>
+
+</html>

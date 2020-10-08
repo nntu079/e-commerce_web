@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<title>ADMIN PAGE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey">
+  <meta Content-Type="text/html" ; charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Khai báo thư viện bootstrap và jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    <!-- Khai báo file CSS của các thành phần -->
+    <link rel="stylesheet" type="text/css" href="/component/header_bar/css/mystyle.css">
+    <link rel="stylesheet" href="/component/button/button.css">
+    <link rel="stylesheet" href="/component/textbox/textbox-1.css">
+    <link rel="stylesheet" href="/component/checkbox/checkbox.css">
+
+    <!-- CSS của file html này -->
+    <link rel="stylesheet" href="/yeuthich/yeuthich.css">
+
+      <link rel="stylesheet" href="/component/item/item_favorite/item_favorite.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+  <span class="w3-bar-item w3-right"></span>
+</div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4">
+      <img src="/component/header_bar/images/logo1.png" width="50" height="50" class="w3-circle w3-margin-right" style="width:46px">
+    </div>
+    <div class="w3-col s8 w3-bar">
+      <span>Welcome, <strong>{{username}}</strong></span><br>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5>Dashboard</h5>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="/admin/manageUsers" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
+    <a href="/admin/product" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Views</a>
+    
+    <a href="/admin/logout" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Logout</a><br><br>
+  </div>
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+  </header>
+
+
+
+                <table class="table table-bordered">
+              {{!-- <colgroup>
+                <col class="col-md-2">
+                <col class="col-md-2">
+                <col class="col-md-2">
+                <col class="col-md-2">
+                <col class="col-md-2">
+                <col class="col-md-2">
+              </colgroup> --}}
+              <thead>
+                <tr style="text-align: center;">
+                  <th style="width: 16.66%" scope="col">Username</th>
+                  <th style="width: 16.66%" scope="col">Khóa</th>
+                  <th style="width: 16.66%" scope="col">Mở khóa</th>
+                </tr>
+              </thead>
+              <tbody style="text-align: center; ">
+                {{#each data}}
+                <tr id="haha{{id}}">
+                  <td style="vertical-align: middle;" >{{username}}</td>
+                  <td style="vertical-align: middle;">  
+                    <button><img src="/component/item/item_favorite/cancel-24px.svg"  name="{{id}}"  onclick="removeFavorite1(this)" name="{{username}}" ></button>
+                  </td>
+
+                  <td style="vertical-align: middle;">
+                     <button><img src="/component/item/item_favorite/check-24px.svg"  name="{{id}}"  onclick="removeFavorite2(this)" name="{{username}}" >
+                     </button>
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+
+
+
+   
+  
+
+  
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-light-grey">
+  </footer>
+
+  <!-- End page content -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+
+<script>
+     
+        
+         async function removeFavorite1(obj){
+
+         
+
+           url='http://localhost:3000/user/blockUser/'+obj.name;
+            
+            var r = confirm("Khóa tài khoản");
+
+            if (r == true) {
+
+              divTag=document.getElementById('haha'+obj.name).innerHTML="";
+            
+                await fetch(url);  
+                alert('Khóa thành công');
+            } else {
+              txt = "You pressed Cancel!";
+            } 
+        }
+
+          async function removeFavorite2(obj){
+
+         
+
+           url='http://localhost:3000/user/unblockUser/'+obj.name;
+            
+            var r = confirm("Mở khóa tài khoản");
+
+            if (r == true) {
+              divTag=document.getElementById('haha'+obj.name).innerHTML="";
+             
+                await fetch(url);  
+                alert('Mở khóaThành công');
+            } else {
+              txt = "You pressed Cancel!";
+            } 
+        }
+        
+
+        /*
+        function removeFavorite(){
+            productImages=document.getElementsByName("productImage");
+            for (var i = 0; i < productImages.length; i++){
+                product=document.getElementById("product-" + productImage[i].id)
+                product.innerHTML="";
+            }
+        }
+        removeFavorite()
+        */
+
+    </script>
+
+</body>
+</html>

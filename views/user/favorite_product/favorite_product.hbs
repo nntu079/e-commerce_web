@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta Content-Type="text/html" ; charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Khai báo thư viện bootstrap và jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    <!-- Khai báo file CSS của các thành phần -->
+    <link rel="stylesheet" type="text/css" href="/component/header_bar/css/mystyle.css">
+    <link rel="stylesheet" href="/component/button/button.css">
+    <link rel="stylesheet" href="/component/textbox/textbox-1.css">
+    <link rel="stylesheet" href="/component/checkbox/checkbox.css">
+
+    <!-- CSS của file html này -->
+    <link rel="stylesheet" href="/yeuthich/yeuthich.css">
+
+      <link rel="stylesheet" href="/component/item/item_favorite/item_favorite.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+   
+    <div id="header_bar"></div>
+    <div id="nav_bar"></div>
+
+    <!-- Danh sách các sản phẩm được yêu thích -->
+    <div style="width: 100%; height: 900px">
+        <div class="d-flex justify-content-start align-items-start">
+
+            <link rel="stylesheet" href="/component/account_side_menu/account_side_menu.css">
+            <div class="menu_container ">
+                <!-- Xin chao, <name> -->
+                <p class="welcome_p">
+                    Xin chào, {{firstname}}
+                </p>
+                <!-- Contain items -->
+                <div class="item_container">
+                    <p><a href="/user/profile" style="color:black">Thông tin tài khoản</a></p>
+                    <p><a href="/user/orders" style="color:black">Đơn hàng của bạn</a></p>
+                    <p><a href="/user/favorite_product" style="color:black">Sản phẩm yêu thích</a></p>
+                    <p><a href="/user/delete_account" style="color:black">Xóa hoặc tạm khóa tài khoản</a></p>
+                </div>
+                <!-- A red line on the right side -->
+                <div class="line"> </div>
+            </div>
+
+            <div class="d-flex justify-content-start items-container flex-wrap " style="min-width: 600px;">
+                
+                {{#each data}}
+                <div class="d-flex item-column" id="{{id}}">
+                    <div class="outside-container">
+                        <!-- Trái tim ở bên góc trái trên -->
+                       <img src="/component/item/item_favorite/heart_icon.svg"  class="favor-img" name="{{id}}"  onclick="removeFavorite(this)">
+                        <!-- Khung -->
+                        <div class="inside-container">
+                            <a href="/user/product_infor/{{id}}">
+                                <img class="item-image" src="/data/{{url_image_1}}" alt="Book"> 
+                                <p class="item-title">{{name}}</p>
+                                
+                                <div class="item-rating">
+                                     {{#each rank}}
+                                    <span class="fa fa-star checked" style="font-size:24px"></span>
+                                    {{/each}}
+
+                                    {{#each not_rank}}
+                                    <span class="fa fa-star" style="font-size:24px"></span>
+                                    {{/each}}
+                                </div>
+
+                                <p class="item-price">{{price}} VND</p>
+                                <p class="item-ori-price">{{old_price}} VND</p>
+                            </a>
+                        
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+
+            </div>
+
+        </div>
+        <div class="d-flex justify-content-start"></div>
+    </div>
+
+    <div id="footer"></div>
+
+    <script>
+        function loadComponent(id, url) {
+            $("#" + id).load(url);
+        }
+
+        $(document).ready(function () {
+            loadComponent("header_bar", "/component/header_bar/header_bar.html");
+            loadComponent("nav_bar", "/component/nav_bar/nav_bar.html");
+            loadComponent("side_bar", "/component/account_side_menu/account_side_menu.html");
+            loadComponent("footer", "/component/footer/footer.html");
+            /*
+            let count = 4;
+            for (let i = 1; i <= count; i++) {
+                let str_id = "item" + i.toString();
+                loadComponent(str_id, "/component/item/item_favorite/item_favorite.html");
+            }
+            */
+
+        });
+        
+        
+         async function removeFavorite(obj){
+
+            divTag=document.getElementById(`${obj.name}`);
+            var r = confirm("Xóa khỏi sản phấm yêu thích");
+            if (r == true) {
+              divTag.innerHTML="";
+
+                url='http://localhost:3000/user/delete_favorite_product/'+obj.name;
+                await fetch(url);  
+
+            } else {
+              txt = "You pressed Cancel!";
+            } 
+            
+        }
+        
+
+        /*
+        function removeFavorite(){
+            productImages=document.getElementsByName("productImage");
+            for (var i = 0; i < productImages.length; i++){
+                product=document.getElementById("product-" + productImage[i].id)
+                product.innerHTML="";
+            }
+        }
+        removeFavorite()
+        */
+
+    </script>
+
+</body>
+
+</html>

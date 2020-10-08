@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta Content-Type="text/html" ; charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Khai báo thư viện bootstrap và jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    <!-- Khai báo file CSS của các thành phần -->
+    <!-- <link rel="stylesheet" type="text/css" href="resources/component/header_bar/css/mystyle.css"> -->
+    <link rel="stylesheet" href="/component/button/button.css">
+    <link rel="stylesheet" href="/component/textbox/textbox-1.css">
+    <link rel="stylesheet" href="/component/checkbox/checkbox.css">
+
+    <!-- CSS của file html này -->
+    <link rel="stylesheet" href="/user/profile/profile.css">
+
+    {{!-- Script --}}
+    <script src="/user/profile/profile.js"></script>
+
+</head>
+
+<body>
+
+    <div id="header_bar"></div>
+    <div id="nav_bar"></div>
+    <div style="width: 100%; height: 700px">
+        <div class="d-flex justify-content-start align-items-start">
+            <!-- Component file - load by jQuery to generate component -->
+            <link rel="stylesheet" href="/component/account_side_menu/account_side_menu.css">
+            <div class="menu_container ">
+                <!-- Xin chao, <name> -->
+                <p class="welcome_p">
+                    Xin chào, {{firstname}}
+                </p>
+                <!-- Contain items -->
+                <div class="item_container">
+                    <p><a href="/user/profile/" style="color:black">Thông tin tài khoản</a></p>
+                    <p><a href="/user/orders" style="color:black">Đơn hàng của bạn</a></p>
+                    <p><a href="/user/favorite_product" style="color:black">Sản phẩm yêu thích</a></p>
+                    <p><a href="/user/delete_account" style="color:black">Xóa hoặc tạm khóa tài khoản</a></p>
+                </div>
+                <!-- A red line on the right side -->
+                <div class="line"> </div>
+            </div>
+
+            <div style="margin-top: 30px; margin-left: 40px; min-width: 600px;"
+                class="d-flex flex-column justify-content-end">
+                <p>Vui lòng nhập mật khẩu trước khi tiến hành chỉnh sửa thông tin.</p>
+
+                <div class="textbox-with-label d-flex">
+                    <p>Mật khẩu</p>
+                    <input id="oldPassTxb" type="password" class="textbox-1" placeholder="Mật khẩu hiện tại" autocomplete="off"  onblur="check()"></input>
+                </div>
+
+                <!-- Ngăn cách -->
+                <div class="line-1"></div>
+
+                <div class="textbox-with-label d-flex">
+                    <p>Tên đăng nhập</p>
+                    <em id="usernameLabel" class="username">{{username}}</em>
+                </div>
+
+                <div class="textbox-with-label d-flex">
+                    <p>Họ và tên</p>
+                    <input id="fullnameTxb" type="textbox" class="textbox-1" placeholder="{{lastname_firstname}}"> </input>
+                </div>
+
+                <div class="textbox-with-label d-flex">
+                    <p>Email</p>
+                    <input id="emailTxb" type="textbox" class="textbox-1" placeholder="{{email}}"></input>
+                </div>
+                <!-- Thêm checkbox "Đã xác nhận" phía dưới - khác với kịch bản ban đầu là để bên cạnh -->
+                <div class="custom-control custom-checkbox d-flex" style="margin-left: 150px; margin-bottom: 10px">
+                    <input type="checkbox" class="custom-control-input red" id="customCheck" name="example1">
+                    <label class="custom-control-label" for="customCheck">Đã xác nhận bởi Just Click</label>
+                </div>
+
+                <div class="textbox-with-label d-flex">
+                    <p>Số điện thoại</p>
+                    <input id="phoneTxb" type="textbox" class="textbox-1" placeholder="{{phone}}"></input>
+                </div>
+
+                <!-- Ngăn cách -->
+                <div class="line-1"></div>
+
+                <!-- Đổi mật khẩu -->
+                <p>Xin để trống nếu bạn không muốn đổi mật khẩu.</p>
+                <div class="textbox-with-label d-flex">
+                    <p>Mật khẩu mới</p>
+                    <input id="newPass1Txb" type="password" class="textbox-1" placeholder="Mật khẩu mới"></input>
+                </div>
+                <div class="textbox-with-label d-flex">
+                    <p>Nhập lại</p>
+                    <input id="newPass2Txb" type="password" class="textbox-1" placeholder="Nhập lại mật khẩu mới"></input>
+                </div>
+
+                <!-- Nút xác nhận -->
+                <button id="accept_button" class="button-red button d-flex justify-content-center" 
+                        style="margin-top: 30px; font-size: 24px; size:50%"
+                        onclick="OnConfirmButtonClick();">
+                        Xác nhận</button>
+            </div>
+        </div>
+        <div class="d-flex justify-content-start"></div>
+    </div>
+
+    <div id="footer"></div>
+
+    <script>
+        function loadComponent(id, url) {
+            $("#" + id).load(url);
+        }
+        $(document).ready(function () {
+            loadComponent("header_bar", "/component/header_bar/header_bar.html");
+            loadComponent("nav_bar", "/component/nav_bar/nav_bar.html")
+            loadComponent("footer", "/component/footer/footer.html")
+            // sửa height của line bên menu cho tương ứng với độ dài trang
+        });
+    </script>
+
+    <script>
+        async function check(){
+              var x = document.getElementById("oldPassTxb");
+
+                url='http://localhost:3000/user/getUserInfoAPI/'+x.value;
+              
+                fetch(url)
+                  .then(
+                    function(response) {
+                      if (response.status !== 200) {
+                        console.log('Lỗi');
+                        return true;
+                      }
+                      // parse response data
+                      response.json().then(data => {
+                      
+                        if(data[0].checkPass=='-1'){
+                            alert('Sai mật khẩu hiện tại');
+                        }
+                      })
+                    }
+                  )
+                  .catch(err => {
+                    console.log('Error :-S', err)
+                  });
+        }
+        
+    </script>
+
+</body>
+
+</html>
